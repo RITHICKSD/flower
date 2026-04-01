@@ -1,0 +1,16 @@
+<!-- Sections -->
+            <div id="analytics" class="section-content">
+                <!-- Content removed -->
+            </div>
+            <div id="inventory" class="section-content" style="display:none;">
+                <!-- Content removed -->
+            </div>
+            <div id="orders" class="section-content" style="display:none;">
+                <!-- Content removed -->
+            </div>
+            <div id="customers" class="section-content" style="display:none;">
+                <!-- Content removed -->
+            </div>
+            <div id="settings" class="section-content" style="display:none;">
+                <!-- Content removed -->
+            </div>

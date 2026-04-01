@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Our Services | Petal &amp; Bloom Luxury Florals</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <style>
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(21, 9, 16, 0.6), rgba(21, 9, 16, 0.6)), url('https://picsum.photos/seed/services_v2/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .about-header-txt h1 {
+            font-family: var(--ff);
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 10px;
+        }
+
+        .breadcrumbs {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gl);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .service-item {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--sh);
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: scale(1.02);
+        }
+
+        .service-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-info {
+            padding: 40px;
+        }
+
+        .service-info h3 {
+            font-family: var(--ff);
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: var(--p);
+        }
+
+        .service-price {
+            font-family: var(--ff);
+            font-size: 1.5rem;
+            color: var(--g);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <div class="hdr-wrap">
+            <a href="index.html" class="logo">
+                <svg class="logo-svg" viewBox="0 0 52 52">
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(60 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(120 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(180 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(240 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(300 26 26)" />
+                    <circle cx="26" cy="26" r="9" fill="#fff" opacity=".95" />
+                    <circle cx="26" cy="26" r="5" fill="#C9A050" />
+                </svg>
+                <div class="logo-txt"><span class="l-name">Petal &amp; Bloom</span><span class="l-tag">Luxury
+                        Florals</span></div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nl">
+                    <li class="ni has-drop"><a href="#" class="nl-a">Home <i class="fas fa-chevron-down"></i></a>
+                        <div class="drop"><a href="index.html" class="di">Home 1</a><a href="home2.html" class="di">Home
+                                2</a></div>
+                    </li>
+                    <li class="ni"><a href="about.html" class="nl-a">About</a></li>
+                    <li class="ni"><a href="services.html" class="nl-a active">Services</a></li>
+                    <li class="ni"><a href="contact.html" class="nl-a">Contact</a></li>
+                    <li class="ni has-drop"><a href="#" class="nl-a">Dashboard <i class="fas fa-chevron-down"></i></a>
+                        <div class="drop"><a href="user-dashboard.html" class="di"><i class="fas fa-user-circle"></i>
+                                User Dashboard</a><a href="admin-dashboard.html" class="di"><i
+                                    class="fas fa-shield-halved"></i> Admin Dashboard</a></div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hdr-right">
+                <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL"><i class="fas fa-globe"></i></button>
+                <a href="login.html" class="btn-login"><i class="fas fa-user"></i><span>Login</span></a>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="about-header-txt">
+                <span class="breadcrumbs">Home / Services</span>
+                <h1 class="ani-up">Bespoke Floral Services</h1>
+                <p class="ani-up d1">Tailored Excellence for Every Milestone</p>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="con">
+                <div class="services-grid">
+                    <div class="service-item ani-left d0">
+                        <div class="service-img"
+                            style="background-image: url('https://picsum.photos/seed/wedding_v/800/1000'); height: 450px;">
+                        </div>
+                        <div class="service-info">
+                            <span class="eye">01. Grand Events</span>
+                            <h3>Wedding Floristry</h3>
+                            <span class="service-price">Packages from $2,500</span>
+                            <p>Complete floral design for your special day, including bouquets, centerpieces, and grand
+                                archway installations that define the atmosphere.</p>
+                            <a href="contact.html" class="btn btn-outline mt40"
+                                style="border-color: var(--g); color: var(--g);">Enquire Now</a>
+                        </div>
+                    </div>
+                    <div class="service-item ani-right d1">
+                        <div class="service-img"
+                            style="background-image: url('https://picsum.photos/seed/corp_v/800/1000'); height: 450px;">
+                        </div>
+                        <div class="service-info">
+                            <span class="eye">02. Atmosphere</span>
+                            <h3>Corporate Styling</h3>
+                            <span class="service-price">Custom Monthly Retainers</span>
+                            <p>Elevate your office or retail space with weekly rotations of fresh, luxury arrangements
+                                designed to speak your brand's language.</p>
+                            <a href="contact.html" class="btn btn-outline mt40"
+                                style="border-color: var(--g); color: var(--g);">Enquire Now</a>
+                        </div>
+                    </div>
+                    <div class="service-item ani-left d2">
+                        <div class="service-img"
+                            style="background-image: url('https://picsum.photos/seed/event_v/800/1000'); height: 450px;">
+                        </div>
+                        <div class="service-info">
+                            <span class="eye">03. Curation</span>
+                            <h3>Event Decor</h3>
+                            <span class="service-price">Starting at $500</span>
+                            <p>From intimate dinner parties to grand galas, we provide floral accents that set the
+                                perfect mood for every guest.</p>
+                            <a href="contact.html" class="btn btn-outline mt40"
+                                style="border-color: var(--g); color: var(--g);">Enquire Now</a>
+                        </div>
+                    </div>
+                    <div class="service-item ani-right d3">
+                        <div class="service-img"
+                            style="background-image: url('https://picsum.photos/seed/sub_v/800/1000'); height: 450px;">
+                        </div>
+                        <div class="service-info">
+                            <span class="eye">04. Lifestyle</span>
+                            <h3>Subscription Club</h3>
+                            <span class="service-price">From $49 / Month</span>
+                            <p>Enjoy a regular infusion of beauty in your home with our curated subscription boxes,
+                                delivered fresh and ready to bloom.</p>
+                            <a href="index.html#subscriptions" class="btn btn-outline mt40"
+                                style="border-color: var(--g); color: var(--g);">View Plans</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXTRA 10 SECTIONS -->
+
+        <!-- HOTEL INSTALLATIONS -->
+        <section class="sec bg-cream">
+            <div class="con">
+                <div class="loyalty-g">
+                    <div class="loyalty-img ani-left">
+                        <img src="https://picsum.photos/seed/hotel/800/600" alt="Hotel" style="border-radius: 40px;">
+                    </div>
+                    <div class="loyalty-txt ani-right">
+                        <span class="eye">05. Hospitality</span>
+                        <h2 class="st">Lobby & Suite Curation</h2>
+                        <p>We partner with the world's most prestigious hotels to provide statement arrangements that
+                            welcome guests with unparalleled elegance. Our team manages daily maintenance to ensure
+                            perfection 24/7.</p>
+                        <a href="contact.html" class="btn btn-primary mt40">Hospitality Inquiries</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- YACHT & JET -->
+        <section class="sec bg-dark" style="background: #0f141a; color: #fff;">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye light">06. Private Travel</span>
+                    <h2 class="st light">Aviation & Marine Floristry</h2>
+                    <p class="light" style="max-width: 700px; margin: 0 auto;">Bespoke installations for private jets
+                        and luxury yachts. We specialize in secure, low-maintenance designs that withstand travel while
+                        maintaining their pristine beauty.</p>
+                </div>
+                <div class="prod-grid mt60">
+                    <div class="stat-card center ani-up"
+                        style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px;">
+                        <i class="fas fa-plane-departure" style="font-size: 2rem; color: var(--g);"></i>
+                        <h4 class="mt20">Jet Interiors</h4>
+                    </div>
+                    <div class="stat-card center ani-up d1"
+                        style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px;">
+                        <i class="fas fa-ship" style="font-size: 2rem; color: var(--g);"></i>
+                        <h4 class="mt20">Superyacht Decor</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCENT PAIRING -->
+        <section class="sec">
+            <div class="con">
+                <div class="loyalty-g" style="grid-template-columns: 1fr 1fr;">
+                    <div class="loyalty-txt ani-left">
+                        <span class="eye">07. Sensory</span>
+                        <h2 class="st">Perfumery & Pairing</h2>
+                        <p>Enhance the visual beauty with customized olfactory profiles. We pair our floral arrangements
+                            with bespoke candles or room mists to create a multi-sensory environment.</p>
+                    </div>
+                    <div class="loyalty-img ani-right">
+                        <img src="https://picsum.photos/seed/scent/800/600" alt="Scent" style="border-radius: 40px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRESERVED ART -->
+        <section class="sec bg-cream">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">08. Longevity</span>
+                    <h2 class="st">Everlasting Art Pieces</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">Framed botanical specimens and glass-encased
+                        arrangements that remain perfectly preserved for years. A fusion of nature and interior design.
+                    </p>
+                </div>
+                <div class="services-grid mt60">
+                    <div class="stat-card ani-up" style="background: #fff; padding: 20px;">
+                        <img src="https://picsum.photos/seed/preserve1/500/500"
+                            style="width: 100%; border-radius: 10px;">
+                        <h4 class="center mt10">Botanical Frames</h4>
+                    </div>
+                    <div class="stat-card ani-up d1" style="background: #fff; padding: 20px;">
+                        <img src="https://picsum.photos/seed/preserve2/500/500"
+                            style="width: 100%; border-radius: 10px;">
+                        <h4 class="center mt10">Encased Domes</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GIFTING -->
+        <section class="sec">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">09. Gifting</span>
+                    <h2 class="st">VIP Concierge White-Label</h2>
+                    <p>Exclusive gifting services for concierge desks and personal assistants. We handle recurring
+                        anniversaries and special dates with automatic, premium delivery.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LANDSCAPE -->
+        <section class="sec bg-dark" style="background: #1a251b; color: #fff;">
+            <div class="con">
+                <div class="loyalty-g">
+                    <div class="loyalty-img ani-left">
+                        <img src="https://picsum.photos/seed/garden/800/600" alt="Garden" style="border-radius: 40px;">
+                    </div>
+                    <div class="loyalty-txt ani-right">
+                        <span class="eye light">10. Exterior</span>
+                        <h2 class="st light">Terrace & Garden Design</h2>
+                        <p class="light">Extending our floral expertise to your outdoor spaces. We design seasonal
+                            terrace gardens and balcony escapes that reflect your indoor luxury.</p>
+                        <a href="contact.html" class="btn btn-gold mt40">Explore Landscaping</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEASONAL DOORS -->
+        <section class="sec">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">11. Seasonal</span>
+                    <h2 class="st">Door Scapes & Facades</h2>
+                    <p>Transform your home or boutique entrance with seasonal floral installations. From festive wreaths
+                        to spring blossom arches.</p>
+                </div>
+                <div class="prod-grid mt60">
+                    <img src="https://picsum.photos/seed/door1/400/400" class="ani-zoom" style="border-radius: 20px;">
+                    <img src="https://picsum.photos/seed/door2/400/400" class="ani-zoom d1"
+                        style="border-radius: 20px;">
+                    <img src="https://picsum.photos/seed/door3/400/400" class="ani-zoom d2"
+                        style="border-radius: 20px;">
+                </div>
+            </div>
+        </section>
+
+        <!-- FUNERAL ART -->
+        <section class="sec bg-cream">
+            <div class="con">
+                <div class="loyalty-g">
+                    <div class="loyalty-txt ani-left">
+                        <span class="eye">12. Tributes</span>
+                        <h2 class="st">Sympathy & Memorial Art</h2>
+                        <p>Thoughtful, elegant arrangements designed to honor lives with grace. We provide discreet
+                            delivery and setup for memorial services.</p>
+                    </div>
+                    <div class="loyalty-img ani-right">
+                        <img src="https://picsum.photos/seed/sympathy/800/600" alt="Sympathy"
+                            style="border-radius: 40px; filter: grayscale(0.5);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LUXURY PACKAGING -->
+        <section class="sec">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">13. Craft</span>
+                    <h2 class="st">Signature Packaging</h2>
+                    <p>Every delivery is a gift. Our flowers arrive in custom-designed, eco-conscious boxes with silk
+                        ribbons and hand-calligraphed notes.</p>
+                    <img src="https://picsum.photos/seed/box/1200/400" class="ani-up mt60"
+                        style="border-radius: 40px; width: 100%;">
+                </div>
+            </div>
+        </section>
+
+        <!-- CONSULTATION CTA (Re-using existing but updated) -->
+        <section class="sec bg-dark center" style="background: var(--p);">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye light">14. Advisory</span>
+                    <h2 class="st light">Exclusive Design Consultation</h2>
+                    <p class="light mt40" style="max-width: 600px; margin: 0 auto;">Architecting your floral vision.
+                        Book a one-on-one session with Isabella Thorne to conceptualize your event or home styling.</p>
+                    <a href="contact.html" class="btn btn-gold btn-lg mt40">Book My Session</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="con">
+            <p class="center">&copy; 2024 Petal &amp; Bloom Luxury Florals</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

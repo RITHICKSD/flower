@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Account | Petal &amp; Bloom Luxury Florals</title>
+    <meta name="description" content="Create your Petal & Bloom account and start your luxury floral journey." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <style>
+        :root {
+            --p: #3D0C1F;
+            --forest: #1E2D24;
+            --g: #C9A050;
+            --gl: #E8D5A3;
+            --dark: #150910;
+            --cr: #FAF6F1;
+            --ff: 'Cormorant Garamond', serif;
+            --fs: 'Great Vibes', cursive;
+            --fj: 'Jost', sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--fj);
+            background: var(--dark);
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* ── RIGHT PANEL (form – shown FIRST on desktop for register) ── */
+        .panel-right {
+            width: 55%;
+            min-height: 100vh;
+            background: var(--cr);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 60px;
+            position: relative;
+            order: 1;
+        }
+
+        /* ── LEFT PANEL ── */
+        .panel-left {
+            width: 45%;
+            min-height: 100vh;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+            order: 2;
+        }
+
+        .panel-left::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 80% 20%, rgba(201, 160, 80, 0.14) 0%, transparent 55%),
+                radial-gradient(ellipse at 20% 80%, rgba(61, 12, 31, 0.45) 0%, transparent 55%);
+        }
+
+        .panel-left-bg {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://picsum.photos/seed/floral_register/800/1200');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.16;
+        }
+
+        .panel-left-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            justify-content: center;
+            margin-bottom: 40px;
+            text-decoration: none;
+        }
+
+        .brand-logo svg {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+        }
+
+        .brand-txt {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .brand-name {
+            font-family: var(--ff);
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: var(--gl);
+            letter-spacing: 0.02em;
+        }
+
+        .brand-tag {
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: rgba(232, 213, 163, 0.55);
+        }
+
+        .panel-script {
+            font-family: var(--fs);
+            font-size: 3.5rem;
+            color: var(--g);
+            margin-bottom: 14px;
+            line-height: 1;
+        }
+
+        .panel-title {
+            font-family: var(--ff);
+            font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .panel-title em {
+            font-style: italic;
+            color: var(--gl);
+        }
+
+        .panel-desc {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.55);
+            line-height: 1.8;
+            max-width: 340px;
+            margin: 0 auto;
+        }
+
+        .panel-divider {
+            width: 50px;
+            height: 1px;
+            background: var(--g);
+            margin: 28px auto;
+            opacity: 0.6;
+        }
+
+        .perks-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        .perk {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(201, 160, 80, 0.15);
+            border-radius: 12px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+
+        .perk i {
+            font-size: 1.4rem;
+            color: var(--g);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .perk h4 {
+            font-family: var(--ff);
+            font-size: 1rem;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .perk p {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.45);
+            line-height: 1.5;
+        }
+
+        /* ── TOP BAR ── */
+        .top-bar {
+            position: absolute;
+            top: 24px;
+            right: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        html[dir="rtl"] .top-bar {
+            right: auto;
+            left: 28px;
+        }
+
+        .btn-globe-auth {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(201, 160, 80, 0.4);
+            background: transparent;
+            color: var(--forest);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+        .btn-globe-auth:hover {
+            background: var(--g);
+            color: #fff;
+            border-color: var(--g);
+        }
+
+        .back-link {
+            font-size: 0.82rem;
+            color: var(--forest);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            opacity: 0.65;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        /* ── FORM CARD ── */
+        .auth-card {
+            width: 100%;
+            max-width: 460px;
+        }
+
+        .auth-eyebrow {
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--g);
+            margin-bottom: 8px;
+        }
+
+        .auth-title {
+            font-family: var(--ff);
+            font-size: clamp(2rem, 3vw, 2.6rem);
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.1;
+            margin-bottom: 6px;
+        }
+
+        .auth-subtitle {
+            font-size: 0.88rem;
+            color: rgba(30, 45, 36, 0.6);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        /* ── FORM FIELDS ── */
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 0;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--forest);
+            margin-bottom: 7px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 13px 18px;
+            border: 1.5px solid rgba(30, 45, 36, 0.15);
+            border-radius: 10px;
+            font-family: var(--fj);
+            font-size: 0.92rem;
+            color: var(--dark);
+            background: #fff;
+            transition: all 0.25s;
+            outline: none;
+        }
+
+        .form-input::placeholder {
+            color: rgba(30, 45, 36, 0.35);
+        }
+
+        .form-input:focus {
+            border-color: var(--g);
+            box-shadow: 0 0 0 3px rgba(201, 160, 80, 0.12);
+        }
+
+        .input-wrap {
+            position: relative;
+        }
+
+        .input-wrap .form-input {
+            padding-right: 48px;
+        }
+
+        html[dir="rtl"] .input-wrap .form-input {
+            padding-right: 18px;
+            padding-left: 48px;
+        }
+
+        .input-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(30, 45, 36, 0.35);
+            cursor: pointer;
+            font-size: 0.88rem;
+            transition: color 0.2s;
+        }
+
+        html[dir="rtl"] .input-icon {
+            right: auto;
+            left: 16px;
+        }
+
+        .input-icon:hover {
+            color: var(--g);
+        }
+
+        /* ── PASSWORD STRENGTH ── */
+        .pwd-strength {
+            margin-top: 8px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .ps-bar {
+            flex: 1;
+            height: 3px;
+            border-radius: 3px;
+            background: rgba(30, 45, 36, 0.1);
+            transition: background 0.3s;
+        }
+
+        .ps-bar.weak {
+            background: #e57373;
+        }
+
+        .ps-bar.medium {
+            background: #ffb74d;
+        }
+
+        .ps-bar.strong {
+            background: #66bb6a;
+        }
+
+        /* ── TERMS ── */
+        .terms-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0 24px;
+        }
+
+        .terms-row input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            accent-color: var(--g);
+            cursor: pointer;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .terms-txt {
+            font-size: 0.83rem;
+            color: rgba(30, 45, 36, 0.65);
+            line-height: 1.5;
+        }
+
+        .terms-txt a {
+            color: var(--g);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .terms-txt a:hover {
+            color: var(--dark);
+        }
+
+        /* ── BUTTON ── */
+        .btn-primary-auth {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--forest) 100%);
+            color: var(--gl);
+            border: none;
+            border-radius: 10px;
+            font-family: var(--fj);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary-auth::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--g) 0%, #b8893c 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .btn-primary-auth:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary-auth span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary-auth:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(201, 160, 80, 0.35);
+        }
+
+        /* ── SWITCH LINK ── */
+        .switch-link {
+            text-align: center;
+            margin-top: 26px;
+            font-size: 0.87rem;
+            color: rgba(30, 45, 36, 0.6);
+        }
+
+        .switch-link a {
+            color: var(--g);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .switch-link a:hover {
+            color: var(--dark);
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .panel-left {
+                width: 100%;
+                min-height: 240px;
+                padding: 40px 24px 28px;
+                order: 1;
+            }
+
+            .panel-right {
+                width: 100%;
+                padding: 40px 24px 50px;
+                min-height: auto;
+                order: 2;
+            }
+
+            .perks-grid {
+                display: none;
+            }
+
+            .panel-desc {
+                display: none;
+            }
+
+            .panel-divider {
+                display: none;
+            }
+
+            .panel-script {
+                font-size: 2.6rem;
+            }
+
+            .panel-title {
+                font-size: 1.75rem;
+            }
+
+            .top-bar {
+                position: fixed;
+                top: 16px;
+                right: 16px;
+            }
+
+            html[dir="rtl"] .top-bar {
+                right: auto;
+                left: 16px;
+            }
+
+            /* Globe floats over dark panel on mobile — use light colors */
+            .btn-globe-auth {
+                border-color: rgba(201, 160, 80, 0.8);
+                color: var(--gl);
+                background: rgba(255, 255, 255, 0.1);
+                backdrop-filter: blur(8px);
+            }
+
+            .btn-globe-auth:hover {
+                background: var(--g);
+                color: #fff;
+                border-color: var(--g);
+            }
+
+            .back-link {
+                color: rgba(232, 213, 163, 0.85);
+                background: rgba(0, 0, 0, 0.25);
+                padding: 5px 10px;
+                border-radius: 20px;
+                backdrop-filter: blur(6px);
+                opacity: 1;
+            }
+
+            .form-row-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .panel-right {
+                padding: 30px 18px 44px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── FORM PANEL (left on page, right visually) ── -->
+    <div class="panel-right">
+        <div class="top-bar">
+            <button class="btn-globe-auth" id="dirToggle" title="Toggle LTR / RTL"><i class="fas fa-globe"></i></button>
+        </div>
+
+        <div class="auth-card">
+            <p class="auth-eyebrow">New Member</p>
+            <h2 class="auth-title">Create Account</h2>
+            <p class="auth-subtitle">Join the Petal &amp; Bloom family. It only takes a moment.</p>
+
+            <form id="registerForm" novalidate>
+
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label class="form-label" for="firstName">First Name</label>
+                        <input class="form-input" type="text" id="firstName" name="firstName" placeholder="Vanessa"
+                            autocomplete="given-name" required />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="lastName">Last Name</label>
+                        <input class="form-input" type="text" id="lastName" name="lastName" placeholder="Bloom"
+                            autocomplete="family-name" required />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="email">Email Address</label>
+                    <div class="input-wrap">
+                        <input class="form-input" type="email" id="email" name="email" placeholder="you@example.com"
+                            autocomplete="email" required />
+                        <span class="input-icon"><i class="fas fa-envelope"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="phone">Phone Number</label>
+                    <div class="input-wrap">
+                        <input class="form-input" type="tel" id="phone" name="phone" placeholder="+44 20 7946 0958"
+                            autocomplete="tel" />
+                        <span class="input-icon"><i class="fas fa-phone"></i></span>
+                    </div>
+                </div>
+
+                <div class="form-row-2">
+                    <div class="form-group">
+                        <label class="form-label" for="password">Password</label>
+                        <div class="input-wrap">
+                            <input class="form-input" type="password" id="password" name="password"
+                                placeholder="Min. 8 characters" autocomplete="new-password" required />
+                            <span class="input-icon" id="togglePwd"><i class="fas fa-eye"></i></span>
+                        </div>
+                        <div class="pwd-strength" id="pwdStrength">
+                            <div class="ps-bar" id="bar1"></div>
+                            <div class="ps-bar" id="bar2"></div>
+                            <div class="ps-bar" id="bar3"></div>
+                            <div class="ps-bar" id="bar4"></div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="confirmPassword">Confirm Password</label>
+                        <div class="input-wrap">
+                            <input class="form-input" type="password" id="confirmPassword" name="confirmPassword"
+                                placeholder="Repeat password" autocomplete="new-password" required />
+                            <span class="input-icon" id="toggleConfirm"><i class="fas fa-eye"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="terms-row">
+                    <input type="checkbox" id="terms" required />
+                    <label class="terms-txt" for="terms">
+                        I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. I consent to
+                        receiving occasional emails about exclusive offers and new collections.
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-primary-auth"><span>Create My Account</span></button>
+            </form>
+
+            <p class="switch-link">Already have an account? <a href="login.html">Login here</a></p>
+        </div>
+    </div>
+
+    <!-- ── DECORATIVE PANEL ── -->
+    <div class="panel-left">
+        <div class="panel-left-bg"></div>
+        <div class="panel-left-content">
+            <a href="index.html" class="brand-logo">
+                <svg viewBox="0 0 52 52">
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(60 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(120 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(180 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(240 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(300 26 26)" />
+                    <circle cx="26" cy="26" r="9" fill="#fff" opacity=".95" />
+                    <circle cx="26" cy="26" r="5" fill="#C9A050" />
+                </svg>
+                <div class="brand-txt">
+                    <span class="brand-name">Petal &amp; Bloom</span>
+                    <span class="brand-tag">Luxury Florals</span>
+                </div>
+            </a>
+
+            <div class="panel-script">Join us</div>
+            <h2 class="panel-title">Begin your<br><em>floral story</em></h2>
+            <div class="panel-divider"></div>
+            <p class="panel-desc">Become a member and unlock a world of luxury floral experiences crafted just for you.
+            </p>
+
+            <div class="perks-grid">
+                <div class="perk">
+                    <i class="fas fa-gift"></i>
+                    <h4>Welcome Gift</h4>
+                    <p>10% off your first order</p>
+                </div>
+                <div class="perk">
+                    <i class="fas fa-star"></i>
+                    <h4>Earn Points</h4>
+                    <p>Rewards on every purchase</p>
+                </div>
+                <div class="perk">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h4>Free Delivery</h4>
+                    <p>On orders over £80</p>
+                </div>
+                <div class="perk">
+                    <i class="fas fa-bell"></i>
+                    <h4>Early Access</h4>
+                    <p>New collections & sales first</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // RTL / LTR Toggle
+        document.getElementById('dirToggle').addEventListener('click', () => {
+            const h = document.documentElement;
+            h.setAttribute('dir', h.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl');
+        });
+
+        // Password visibility toggles
+        function makeToggle(btnId, inputId) {
+            document.getElementById(btnId).addEventListener('click', () => {
+                const inp = document.getElementById(inputId);
+                const isText = inp.type === 'text';
+                inp.type = isText ? 'password' : 'text';
+                document.querySelector('#' + btnId + ' i').className = isText ? 'fas fa-eye' : 'fas fa-eye-slash';
+            });
+        }
+        makeToggle('togglePwd', 'password');
+        makeToggle('toggleConfirm', 'confirmPassword');
+
+        // Password strength indicator
+        const pwdInput = document.getElementById('password');
+        const bars = [document.getElementById('bar1'), document.getElementById('bar2'), document.getElementById('bar3'), document.getElementById('bar4')];
+
+        pwdInput.addEventListener('input', () => {
+            const v = pwdInput.value;
+            let score = 0;
+            if (v.length >= 8) score++;
+            if (/[A-Z]/.test(v)) score++;
+            if (/[0-9]/.test(v)) score++;
+            if (/[^A-Za-z0-9]/.test(v)) score++;
+
+            bars.forEach((b, i) => {
+                b.className = 'ps-bar';
+                if (i < score) {
+                    if (score === 1) b.classList.add('weak');
+                    else if (score <= 2) b.classList.add('medium');
+                    else b.classList.add('strong');
+                }
+            });
+        });
+
+        // Form submit placeholder
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const terms = document.getElementById('terms');
+            if (!terms.checked) {
+                alert('Please agree to the Terms of Service to continue.');
+                return;
+            }
+            // Redirect to user dashboard on successful registration
+            window.location.href = 'user-dashboard.html';
+        });
+    </script>
+
+</body>
+
+</html>

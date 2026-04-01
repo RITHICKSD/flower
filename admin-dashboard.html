@@ -1,0 +1,1984 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Console | Petal & Bloom</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <style>
+        :root {
+            --admin-nav: #150910;
+            --admin-bg: #F4F6F8;
+            --sidebar-w: 260px;
+            --gold: #C9A050;
+            --forest: #1E2D24;
+            --transition: all 0.35s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--admin-bg);
+            color: var(--forest);
+            font-family: 'Jost', sans-serif;
+            margin: 0;
+            display: flex;
+            min-height: 100vh;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* Admin Sidebar */
+        .sidebar {
+            width: var(--sidebar-w);
+            background: var(--admin-nav);
+            color: #fff;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            /* Changed from 40px 0 to allow internal scroll */
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        html[dir="rtl"] .sidebar {
+            left: auto;
+            right: 0;
+        }
+
+        .logo-box {
+            padding: 25px 25px 15px;
+            /* Added top padding here since sidebar padding was removed */
+            margin-bottom: 5px;
+            display: flex !important;
+        }
+
+        .logo-txt {
+            font-family: var(--ff);
+            font-size: 1.5rem;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .logo-sub {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: var(--gold);
+            letter-spacing: 0.15em;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 25px;
+            /* Reduced from 16px to 12px */
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: var(--transition);
+            border-left: 4px solid transparent;
+            font-size: 0.9rem;
+            /* Reduced slightly */
+        }
+
+        html[dir="rtl"] .nav-link {
+            border-left: none;
+            border-right: 4px solid transparent;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            border-left-color: var(--gold);
+        }
+
+        html[dir="rtl"] .nav-link.active {
+            border-right-color: var(--gold);
+        }
+
+        /* Content Area */
+        .dash-main {
+            margin-left: var(--sidebar-w);
+            width: calc(100% - var(--sidebar-w));
+            padding: 40px;
+            transition: var(--transition);
+        }
+
+        html[dir="rtl"] .dash-main {
+            margin-left: 0;
+            margin-right: var(--sidebar-w);
+            width: calc(100% - var(--sidebar-w));
+            padding: 40px;
+        }
+
+        /* Header Section - Based on User Dashboard Reference */
+        .dash-hdr {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .hdr-title h1 {
+            font-family: var(--ff);
+            font-size: 2.5rem;
+            color: var(--forest);
+            margin: 0 0 5px 0;
+        }
+
+        .hdr-title p {
+            color: #888;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .admin-meta-desktop {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        html[dir="rtl"] .admin-meta-desktop {
+            flex-direction: row-reverse;
+        }
+
+        .btn-globe {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .btn-globe:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .session-info {
+            text-align: right;
+        }
+
+        html[dir="rtl"] .session-info {
+            text-align: left;
+        }
+
+        html[dir="rtl"] h1,
+        html[dir="rtl"] h2,
+        html[dir="rtl"] h3,
+        html[dir="rtl"] h4 {
+            text-align: right;
+        }
+
+        /* Content Sections */
+        .section-content {
+            display: none;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        /* KPI Cards */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .kpi-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+            border: 1px solid #eee;
+        }
+
+        .kpi-card h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #888;
+            margin: 0 0 10px 0;
+            letter-spacing: 0.05em;
+        }
+
+        .kpi-val {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--forest);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .kpi-change {
+            font-size: 0.8rem;
+        }
+
+        .kpi-change.positive {
+            color: #2e7d32;
+        }
+
+        .kpi-change.negative {
+            color: #C8686F;
+        }
+
+        /* Data Grid */
+        .grid-detail {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .data-panel {
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        html[dir="rtl"] .data-panel {
+            text-align: right;
+        }
+
+        .data-panel h3 {
+            font-family: var(--ff);
+            font-size: 1.5rem;
+            margin: 0 0 25px 0;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f8f8f8;
+        }
+
+        .num-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .num-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .num-item:last-child {
+            border-bottom: none;
+        }
+
+        .num-label {
+            font-weight: 500;
+            color: #555;
+        }
+
+        .num-data {
+            font-weight: 700;
+            color: var(--forest);
+        }
+
+        html[dir="rtl"] .num-data {
+            direction: ltr;
+            unicode-bidi: embed;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        .tbl-admin {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .tbl-admin th {
+            text-align: left;
+            padding: 15px;
+            font-size: 0.7rem;
+            color: #aaa;
+            text-transform: uppercase;
+            border-bottom: 2px solid #eee;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .tbl-admin td {
+            padding: 18px 15px;
+            border-bottom: 1px solid #f4f4f4;
+            font-size: 0.95rem;
+        }
+
+        .tbl-admin th:nth-child(3),
+        .tbl-admin td:nth-child(3),
+        .tbl-admin th:nth-child(4),
+        .tbl-admin td:nth-child(4),
+        .tbl-admin th:nth-child(5),
+        .tbl-admin td:nth-child(5) {
+            text-align: right;
+        }
+
+        html[dir="rtl"] .tbl-admin th,
+        html[dir="rtl"] .tbl-admin td {
+            text-align: right;
+        }
+
+        html[dir="rtl"] .tbl-admin th:nth-child(3),
+        html[dir="rtl"] .tbl-admin td:nth-child(3),
+        html[dir="rtl"] .tbl-admin th:nth-child(4),
+        html[dir="rtl"] .tbl-admin td:nth-child(4),
+        html[dir="rtl"] .tbl-admin th:nth-child(5),
+        html[dir="rtl"] .tbl-admin td:nth-child(5) {
+            text-align: left;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .badge.high {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .badge.low {
+            background: #fff8e1;
+            color: #f9a825;
+        }
+
+        .badge.out {
+            background: #feebee;
+            color: #c62828;
+        }
+
+        /* Chart Containers */
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 300px;
+            width: 100%;
+        }
+
+        .chart-card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+            margin-bottom: 30px;
+        }
+
+        .chart-card h3 {
+            font-family: var(--ff);
+            font-size: 1.5rem;
+            margin: 0 0 20px 0;
+            color: var(--forest);
+        }
+
+        /* Infographic Stats */
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #f0f0f0;
+            border-radius: 5px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-val {
+            height: 100%;
+            background: var(--gold);
+            border-radius: 5px;
+        }
+
+        /* Settings Panel */
+        .settings-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+        }
+
+        .setting-info h4 {
+            margin: 0 0 5px 0;
+            font-size: 1rem;
+        }
+
+        .setting-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .setting-value {
+            font-weight: 600;
+            color: var(--forest);
+        }
+
+        .setting-status {
+            color: #2e7d32;
+            font-weight: 600;
+        }
+
+        /* Nav Labels */
+        .nav-label {
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.2);
+            margin: 15px 25px 5px;
+            /* Reduced vertical margins */
+            display: block;
+            letter-spacing: 0.2em;
+        }
+
+        /* Mobile */
+        .ham-admin {
+            display: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1100;
+            background: var(--admin-nav);
+            color: #fff;
+            width: 45px;
+            height: 45px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 1200px) {
+            .kpi-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-detail {
+                grid-template-columns: 1fr;
+            }
+
+            .settings-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 260px;
+                z-index: 2000;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+                box-shadow: 20px 0 50px rgba(0, 0, 0, 0.3);
+            }
+
+            html[dir="rtl"] .sidebar {
+                transform: translateX(100%);
+                left: auto;
+                right: 0;
+            }
+
+            html[dir="rtl"] .sidebar.show {
+                transform: translateX(0);
+                box-shadow: -20px 0 50px rgba(0, 0, 0, 0.3);
+            }
+
+            html[dir="rtl"] .dash-main {
+                margin-right: 0 !important;
+                margin-left: 0 !important;
+                width: 100% !important;
+                padding: 100px 15px 40px 25px !important;
+                /* Shifting slight right (towards edge) to balance visual center */
+            }
+
+            .dash-main {
+                margin-left: 0;
+                width: 100%;
+                padding: 90px 12px 40px;
+                /* Reduced side padding slightly for more card space */
+                overflow-x: hidden;
+                box-sizing: border-box;
+            }
+
+            .dash-hdr {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+
+            .admin-meta-desktop {
+                display: none !important;
+            }
+
+            .admin-meta {
+                position: fixed;
+                top: 15px;
+                right: 20px;
+                z-index: 1100;
+                background: rgba(255, 255, 255, 0.9);
+                backdrop-filter: blur(10px);
+                padding: 10px 15px;
+                border-radius: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                display: flex !important;
+                align-items: center;
+                gap: 12px;
+            }
+
+            html[dir="rtl"] .admin-meta {
+                right: auto;
+                left: 20px;
+                flex-direction: row-reverse;
+            }
+
+            .ham-admin {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                font-size: 1.2rem;
+                cursor: pointer;
+                position: fixed;
+                top: 15px;
+                left: 15px;
+                z-index: 1100;
+                background: var(--admin-nav);
+                color: #fff;
+                width: 45px;
+                height: 45px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            html[dir="rtl"] .ham-admin {
+                left: auto;
+                right: 15px;
+            }
+
+            .kpi-row {
+                grid-template-columns: 1fr;
+            }
+
+            html[dir="rtl"] .num-item {
+                flex-direction: row-reverse;
+            }
+
+            html[dir="rtl"] .num-label {
+                text-align: right;
+            }
+
+            .hdr-title h1 {
+                font-size: 2rem;
+            }
+
+            .tbl-admin th,
+            .tbl-admin td {
+                padding: 12px 8px;
+                font-size: 0.85rem;
+            }
+
+            /* ── System Config Mobile Overrides ── */
+            #settings .kpi-row {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 12px !important;
+            }
+
+            #settings .kpi-card {
+                padding: 15px !important;
+            }
+
+            #settings .kpi-card h4 {
+                font-size: 0.8rem;
+            }
+
+            #settings .kpi-val {
+                font-size: 1.4rem;
+            }
+
+            #settings .data-panel {
+                padding: 20px 15px;
+            }
+
+            #settings .data-panel h3 {
+                font-size: 1.15rem;
+            }
+
+            #settings .settings-grid {
+                grid-template-columns: 1fr !important;
+                gap: 12px !important;
+            }
+
+            #settings .setting-item {
+                padding: 15px !important;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            #settings .setting-item[style*="grid-column"] {
+                grid-column: auto !important;
+            }
+
+            /* Module status grid → 2 cols on mobile */
+            #settings [style*="grid-template-columns:repeat(4"] {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 10px !important;
+            }
+
+            /* Table horizontal scroll */
+            #settings .table-responsive {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            #settings .tbl-admin {
+                min-width: 500px;
+            }
+
+            /* Storage layout stacks vertically */
+            #settings .grid-detail {
+                grid-template-columns: 1fr !important;
+            }
+
+            /* Chart cards */
+            .chart-card {
+                padding: 15px !important;
+                margin-bottom: 20px !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                border-radius: 12px !important;
+            }
+
+            .chart-container {
+                height: 220px !important;
+                width: 100% !important;
+                overflow: hidden !important;
+            }
+        }
+
+        /* Extra-small screens */
+        @media (max-width: 480px) {
+            #settings .kpi-row {
+                grid-template-columns: 1fr !important;
+            }
+
+            #settings [style*="grid-template-columns:repeat(4"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            #settings .setting-info h4 {
+                font-size: 0.9rem;
+            }
+
+            #settings .setting-info p {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="ham-admin" id="hamAdmin"><i class="fas fa-bars"></i></button>
+
+    <div class="admin-meta">
+        <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL" style="border-color:#ddd; color:#333;"><i
+                class="fas fa-globe"></i></button>
+        <div class="session-info">
+            <div style="font-weight:700;">Admin Session #2408</div>
+            <div style="font-size:0.75rem; color:var(--gold);">LAST SYNC: JUST NOW</div>
+        </div>
+    </div>
+
+    <aside class="sidebar" id="sidebar">
+        <a href="index.html" class="logo-box"
+            style="text-decoration:none; display:flex; align-items:center; gap:12px; margin-bottom:5px;">
+            <svg class="logo-svg" viewBox="0 0 52 52" style="width:42px; height:42px;">
+                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" />
+                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(60 26 26)" />
+                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(120 26 26)" />
+                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(180 26 26)" />
+                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(240 26 26)" />
+                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(300 26 26)" />
+                <circle cx="26" cy="26" r="9" fill="#fff" opacity=".95" />
+                <circle cx="26" cy="26" r="5" fill="#C9A050" />
+            </svg>
+            <div class="logo-txt" style="display:flex; flex-direction:column; line-height:1.1;">
+                <span class="l-name"
+                    style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:600; color:#fff;">Petal
+                    & Bloom</span>
+                <span class="l-tag"
+                    style="font-size:0.65rem; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin-top:1px;">Luxury
+                    Florals</span>
+            </div>
+        </a>
+
+        <span class="nav-label">Core Business</span>
+        <a href="#" class="nav-link active" data-sec="analytics"><i class="fas fa-chart-line"></i> Global
+            Analytics</a>
+        <a href="#" class="nav-link" data-sec="inventory"><i class="fas fa-seedling"></i> Inventory Audit</a>
+        <a href="#" class="nav-link" data-sec="orders"><i class="fas fa-shopping-cart"></i> Order Stream</a>
+        <a href="#" class="nav-link" data-sec="supply"><i class="fas fa-truck-moving"></i> Supply Chain</a>
+
+        <span class="nav-label">Clientele</span>
+        <a href="#" class="nav-link" data-sec="customers"><i class="fas fa-users"></i> Member CRM</a>
+        <a href="#" class="nav-link" data-sec="settings"><i class="fas fa-cog"></i> System Config</a>
+
+        <div class="sidebar-footer"
+            style="margin-top: auto; padding: 10px 10px 20px; border-top: 1px solid rgba(255, 255, 255, 0.05);">
+            <a href="index.html" class="nav-link btn-logout"
+                style="width: 100%; display: flex; align-items: center; gap: 15px; padding: 10px; color: #C8686F; border-radius: 12px;"><i
+                    class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+    </aside>
+
+    <main class="dash-main">
+        <!-- Header Section - Aligned like User Dashboard -->
+        <div class="dash-hdr">
+            <div class="hdr-title">
+                <h1 id="secTitle">Business Analytics</h1>
+                <p id="secDesc">Real-time performance tracking across all departments</p>
+            </div>
+            <div class="admin-meta-desktop">
+                <button class="btn-globe" id="dirToggleDesktop" title="Toggle LTR/RTL"
+                    style="border-color:#ddd; color:#333;"><i class="fas fa-globe"></i></button>
+                <div class="session-info">
+                    <div style="font-weight:700;">Admin Session #2408</div>
+                    <div style="font-size:0.75rem; color:var(--gold);">LAST SYNC: JUST NOW</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sections -->
+        <div class="dash-content">
+            <div id="analytics" class="section-content active">
+                <!-- KPI Cards -->
+                <div class="kpi-row">
+                    <div class="kpi-card">
+                        <h4>Gross Revenue</h4>
+                        <span class="kpi-val">$84,250</span>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +14.2% Growth</span>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Active Orders</h4>
+                        <span class="kpi-val">128</span>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> 5 New Arrivals</span>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Net Margin</h4>
+                        <span class="kpi-val">22.4%</span>
+                        <span class="kpi-change negative"><i class="fas fa-arrow-down"></i> -0.5% Seasonal</span>
+                    </div>
+                    <div class="kpi-card">
+                        <h4>Stock Index</h4>
+                        <span class="kpi-val">94/100</span>
+                        <span class="kpi-change positive"><i class="fas fa-check"></i> Optimal Levels</span>
+                    </div>
+                </div>
+
+                <!-- Global Sales Performance -->
+                <div class="chart-card">
+                    <h3>Global Sales Performance (Last 30 Days)</h3>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+
+                <!-- Revenue Breakdown -->
+                <div class="grid-detail">
+                    <div class="data-panel">
+                        <h3>Revenue Stream Breakdown</h3>
+                        <div class="num-list">
+                            <div class="num-item">
+                                <span class="num-label">Corporate Subscriptions</span>
+                                <span class="num-data">$32,500.00</span>
+                            </div>
+                            <div class="num-item">
+                                <span class="num-label">Event Design Services</span>
+                                <span class="num-data">$28,400.00</span>
+                            </div>
+                            <div class="num-item">
+                                <span class="num-label">Retail / Individual Sales</span>
+                                <span class="num-data">$23,350.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-panel">
+                        <h3>Revenue Stream Distribution</h3>
+                        <div class="chart-container" style="height: 250px;">
+                            <canvas id="revenueDoughnut"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-panel" style="margin-bottom: 40px;">
+                    <h3>Top Product Performance</h3>
+                    <div class="num-list">
+                        <div class="num-item" style="flex-direction: column; align-items: flex-start;">
+                            <div
+                                style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 5px;">
+                                <span class="num-label">Midnight Rose Collection</span>
+                                <span class="num-data">84 Sales</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-val" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="num-item" style="flex-direction: column; align-items: flex-start;">
+                            <div
+                                style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 5px;">
+                                <span class="num-label">Sunlit Tulip Bundle</span>
+                                <span class="num-data">62 Sales</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-val" style="width: 65%;"></div>
+                            </div>
+                        </div>
+                        <div class="num-item" style="flex-direction: column; align-items: flex-start;">
+                            <div
+                                style="display: flex; justify-content: space-between; width: 100%; margin-bottom: 5px;">
+                                <span class="num-label">Velvet Peony Box</span>
+                                <span class="num-data">48 Sales</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-val" style="width: 45%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="inventory" class="section-content">
+            <div class="grid-detail">
+                <div class="chart-card" style="margin-bottom: 0;">
+                    <h3>Stock Status Distribution</h3>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="stockPieChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card" style="margin-bottom: 0;">
+                    <h3>Variety Levels</h3>
+                    <div class="chart-container" style="height: 250px;">
+                        <canvas id="varietyBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="data-panel" style="margin-top: 30px;">
+                <h3>Floral Stock Audit</h3>
+                <div class="table-responsive">
+                    <table class="tbl-admin">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Variety</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#ROSE-01</td>
+                                <td>Damask Rose (Red)</td>
+                                <td>1,240</td>
+                                <td>$2.50</td>
+                                <td><span class="badge high">In Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>#LILY-04</td>
+                                <td>Oriental Lily (White)</td>
+                                <td>42</td>
+                                <td>$4.80</td>
+                                <td><span class="badge low">Low Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>#PEON-02</td>
+                                <td>Velvet Peony</td>
+                                <td>0</td>
+                                <td>$6.50</td>
+                                <td><span class="badge out">Out of Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>#TULI-05</td>
+                                <td>Garden Tulip</td>
+                                <td>856</td>
+                                <td>$1.80</td>
+                                <td><span class="badge high">In Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>#ORCH-12</td>
+                                <td>Phalaenopsis Orchid</td>
+                                <td>156</td>
+                                <td>$8.90</td>
+                                <td><span class="badge high">In Stock</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="orders" class="section-content">
+            <div class="chart-card">
+                <h3>Regional Order Volume</h3>
+                <div class="chart-container">
+                    <canvas id="orderVolumeChart"></canvas>
+                </div>
+            </div>
+            <div class="data-panel">
+                <h3>Active Order Stream</h3>
+                <div class="table-responsive">
+                    <table class="tbl-admin">
+                        <thead>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Client</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Time Left</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ORD-9921</td>
+                                <td>Global Corp LLC</td>
+                                <td>Gala Bundles (x4)</td>
+                                <td>$2,400.00</td>
+                                <td>2h 15m</td>
+                            </tr>
+                            <tr>
+                                <td>ORD-9918</td>
+                                <td>Elena Richards</td>
+                                <td>Wedding Bouquet</td>
+                                <td>$350.00</td>
+                                <td>45m</td>
+                            </tr>
+                            <tr>
+                                <td>ORD-9915</td>
+                                <td>Marriott Downtown</td>
+                                <td>Weekly Subscription</td>
+                                <td>$850.00</td>
+                                <td>4h 30m</td>
+                            </tr>
+                            <tr>
+                                <td>ORD-9912</td>
+                                <td>James & Associates</td>
+                                <td>Corporate Event Setup</td>
+                                <td>$1,200.00</td>
+                                <td>6h 00m</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="supply" class="section-content">
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <h4>On-Time Delivery</h4>
+                    <span class="kpi-val">96.2%</span>
+                    <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +1.5% Efficiency</span>
+                </div>
+                <div class="kpi-card">
+                    <h4>Vendor Reliability</h4>
+                    <span class="kpi-val">9.4/10</span>
+                    <span class="kpi-change positive"><i class="fas fa-star"></i> High Trust Index</span>
+                </div>
+                <div class="kpi-card">
+                    <h4>In-Transit Value</h4>
+                    <span class="kpi-val">$18,420</span>
+                    <span class="kpi-change negative"><i class="fas fa-clock"></i> 3 Shipments Delayed</span>
+                </div>
+                <div class="kpi-card">
+                    <h4>Storage Capacity</h4>
+                    <span class="kpi-val">74%</span>
+                    <span class="kpi-change positive"><i class="fas fa-warehouse"></i> 26% Buffer Space</span>
+                </div>
+            </div>
+
+            <div class="grid-detail">
+                <div class="chart-card">
+                    <h3>Logistics Efficiency Hub</h3>
+                    <div class="chart-container">
+                        <canvas id="logisticsChart"></canvas>
+                    </div>
+                </div>
+                <div class="data-panel">
+                    <h3>Critical Shipments</h3>
+                    <div class="num-list">
+                        <div class="num-item">
+                            <span class="num-label">Cargo-2401 (Ecuador)</span>
+                            <span class="num-data">32h to Port</span>
+                        </div>
+                        <div class="num-item">
+                            <span class="num-label">Cargo-2398 (Kenya)</span>
+                            <span class="num-data" style="color:#C8686F;">Delayed · Customs</span>
+                        </div>
+                        <div class="num-item">
+                            <span class="num-label">In-Land Link (Depot)</span>
+                            <span class="num-data">Active Dispatch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="data-panel">
+                <h3>Vendor Performance Audit</h3>
+                <div class="table-responsive">
+                    <table class="tbl-admin">
+                        <thead>
+                            <tr>
+                                <th>Vendor Partner</th>
+                                <th>Region</th>
+                                <th>Volume</th>
+                                <th>Reliability</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Andean Blooms</td>
+                                <td>Ecuador</td>
+                                <td class="num-data">14,200 units</td>
+                                <td class="num-data">98%</td>
+                                <td><span class="badge high">Verified</span></td>
+                            </tr>
+                            <tr>
+                                <td>Savannah Florals</td>
+                                <td>Kenya</td>
+                                <td class="num-data">8,450 units</td>
+                                <td class="num-data">89%</td>
+                                <td><span class="badge low">Review</span></td>
+                            </tr>
+                            <tr>
+                                <td>Dutch Petals</td>
+                                <td>Netherlands</td>
+                                <td class="num-data">22,100 units</td>
+                                <td class="num-data">99%</td>
+                                <td><span class="badge high">Elite Tier</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="customers" class="section-content">
+            <div class="kpi-row">
+                <div class="kpi-card">
+                    <h4>Total Members</h4>
+                    <span class="kpi-val">427</span>
+                    <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +12 this month</span>
+                </div>
+                <div class="kpi-card">
+                    <h4>Platinum Tier</h4>
+                    <span class="kpi-val">142</span>
+                    <span class="kpi-change positive">33% of total</span>
+                </div>
+                <div class="kpi-card">
+                    <h4>Gold Tier</h4>
+                    <span class="kpi-val">285</span>
+                    <span class="kpi-change positive">67% of total</span>
+                </div>
+                <div class="kpi-card">
+                    <h4>Active Today</h4>
+                    <span class="kpi-val">68</span>
+                    <span class="kpi-change positive">Currently online</span>
+                </div>
+            </div>
+
+            <div class="grid-detail">
+                <div class="chart-card" style="margin-bottom: 0;">
+                    <h3>Member Tier Distribution</h3>
+                    <div class="chart-container" style="height: 280px;">
+                        <canvas id="tierChart"></canvas>
+                    </div>
+                </div>
+                <div class="data-panel" style="margin-bottom: 0;">
+                    <h3>Recent Registrations</h3>
+                    <div class="num-list">
+                        <div class="num-item">
+                            <span class="num-label">New Members (This Month)</span>
+                            <span class="num-data">45</span>
+                        </div>
+                        <div class="num-item">
+                            <span class="num-label">Pending Approvals</span>
+                            <span class="num-data">8</span>
+                        </div>
+                        <div class="num-item">
+                            <span class="num-label">Average Customer Lifetime</span>
+                            <span class="num-data">2.4 years</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="data-panel" style="margin-top: 30px;">
+                <h3>Member Directory</h3>
+                <div class="table-responsive">
+                    <table class="tbl-admin">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Tier</th>
+                                <th>Joined</th>
+                                <th>Total Orders</th>
+                                <th>Last Active</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alice Thompson</td>
+                                <td><span class="badge high">Platinum</span></td>
+                                <td>Jan 12, 2024</td>
+                                <td class="num-data">42</td>
+                                <td>2 days ago</td>
+                            </tr>
+                            <tr>
+                                <td>Bob Miller</td>
+                                <td><span class="badge low">Gold</span></td>
+                                <td>Mar 05, 2024</td>
+                                <td class="num-data">18</td>
+                                <td>Just now</td>
+                            </tr>
+                            <tr>
+                                <td>Cathy Wright</td>
+                                <td><span class="badge high">Platinum</span></td>
+                                <td>Feb 20, 2024</td>
+                                <td class="num-data">56</td>
+                                <td>Yesterday</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div><!-- /#customers -->
+
+        <!-- ============================================================
+             SYSTEM CONFIG SECTION (top-level sibling)
+        ============================================================ -->
+        <div id="settings" class="section-content">
+            <!-- ── System Health KPI (6 cards, 3-col) ── -->
+            <div class="kpi-row" style="grid-template-columns: repeat(3,1fr); margin-bottom:30px;">
+                <div class="kpi-card" style="border-top: 3px solid #2e7d32;">
+                    <h4><i class="fas fa-heartbeat" style="color:#2e7d32;margin-right:6px;"></i> System Health</h4>
+                    <span class="kpi-val">98.4%</span>
+                    <span class="kpi-change positive"><i class="fas fa-check-circle"></i> All systems nominal</span>
+                </div>
+                <div class="kpi-card" style="border-top: 3px solid var(--gold);">
+                    <h4><i class="fas fa-server" style="color:var(--gold);margin-right:6px;"></i> Server Uptime</h4>
+                    <span class="kpi-val">14d 6h 22m</span>
+                    <span class="kpi-change positive"><i class="fas fa-clock"></i> Continuous since last patch</span>
+                </div>
+                <div class="kpi-card" style="border-top: 3px solid #5b8dee;">
+                    <h4><i class="fas fa-microchip" style="color:#5b8dee;margin-right:6px;"></i> Memory Usage</h4>
+                    <span class="kpi-val">4.2 / 16 GB</span>
+                    <div class="progress-bar" style="margin-top:10px;">
+                        <div class="progress-val" style="width:26%; background:#5b8dee;"></div>
+                    </div>
+                    <span class="kpi-change positive">26% utilized · Healthy</span>
+                </div>
+                <div class="kpi-card" style="border-top: 3px solid #f9a825;">
+                    <h4><i class="fas fa-tachometer-alt" style="color:#f9a825;margin-right:6px;"></i> CPU Load</h4>
+                    <span class="kpi-val">31%</span>
+                    <div class="progress-bar" style="margin-top:10px;">
+                        <div class="progress-val" style="width:31%; background:#f9a825;"></div>
+                    </div>
+                    <span class="kpi-change positive">All cores optimal</span>
+                </div>
+                <div class="kpi-card" style="border-top: 3px solid var(--gold);">
+                    <h4><i class="fas fa-users" style="color:var(--gold);margin-right:6px;"></i> Active Sessions</h4>
+                    <span class="kpi-val">24</span>
+                    <span class="kpi-change positive"><i class="fas fa-wifi"></i> No latency detected</span>
+                </div>
+                <div class="kpi-card" style="border-top: 3px solid #C8686F;">
+                    <h4><i class="fas fa-shield-alt" style="color:#C8686F;margin-right:6px;"></i> Threat Level</h4>
+                    <span class="kpi-val" style="color:#2e7d32;">LOW</span>
+                    <span class="kpi-change positive"><i class="fas fa-lock"></i> Firewall active · 0 threats</span>
+                </div>
+            </div>
+
+            <!-- ── Performance Chart + Security Chart ── -->
+            <div class="grid-detail" style="margin-bottom:30px;">
+                <div class="chart-card" style="margin-bottom:0;">
+                    <h3>System Performance Monitor <span
+                            style="font-size:0.7rem;font-weight:400;color:#888;margin-left:10px;">Live · Last 60
+                            min</span></h3>
+                    <div class="chart-container" style="height:260px;"><canvas id="performanceChart"></canvas></div>
+                </div>
+                <div class="chart-card" style="margin-bottom:0;">
+                    <h3>Security Incident Log <span
+                            style="font-size:0.7rem;font-weight:400;color:#888;margin-left:10px;">Last 7 days</span>
+                    </h3>
+                    <div class="chart-container" style="height:260px;"><canvas id="securityChart"></canvas></div>
+                </div>
+            </div>
+
+            <!-- Storage Breakdown -->
+            <div class="data-panel" style="margin-bottom:30px;">
+                <h3>Storage &amp; Asset Breakdown</h3>
+                <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+                    <div style="width:160px;height:160px;flex-shrink:0;">
+                        <canvas id="storageChart"></canvas>
+                    </div>
+                    <div class="num-list" style="flex:1;min-width:180px;">
+                        <div class="num-item" style="flex-direction:column;align-items:flex-start;">
+                            <div style="display:flex;justify-content:space-between;width:100%;margin-bottom:4px;">
+                                <span class="num-label"><i class="fas fa-images"
+                                        style="color:var(--gold);margin-right:6px;"></i>Product Media</span>
+                                <span class="num-data">12.4 GB</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-val" style="width:77%;"></div>
+                            </div>
+                        </div>
+                        <div class="num-item" style="flex-direction:column;align-items:flex-start;">
+                            <div style="display:flex;justify-content:space-between;width:100%;margin-bottom:4px;">
+                                <span class="num-label"><i class="fas fa-database"
+                                        style="color:var(--forest);margin-right:6px;"></i>Database Dumps</span>
+                                <span class="num-data">2.8 GB</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-val" style="width:17%;background:var(--forest);"></div>
+                            </div>
+                        </div>
+                        <div class="num-item" style="flex-direction:column;align-items:flex-start;">
+                            <div style="display:flex;justify-content:space-between;width:100%;margin-bottom:4px;">
+                                <span class="num-label"><i class="fas fa-bolt"
+                                        style="color:#A67E6F;margin-right:6px;"></i>Cached Files</span>
+                                <span class="num-data">1.1 GB</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-val" style="width:7%;background:#A67E6F;"></div>
+                            </div>
+                        </div>
+                        <div class="num-item">
+                            <span class="num-label" style="font-weight:700;">Total Used</span>
+                            <span class="num-data" style="color:var(--gold);">16.3 / 50 GB</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:18px;">
+                    <div style="display:flex;justify-content:space-between;font-size:0.8rem;margin-bottom:5px;">
+                        <span style="color:#888;">Total Disk Utilization</span><strong>32.6%</strong>
+                    </div>
+                    <div class="progress-bar" style="height:14px;border-radius:8px;">
+                        <div class="progress-val"
+                            style="width:32.6%;border-radius:8px;background:linear-gradient(90deg,var(--gold),#e8c46a);">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── General Configuration ── -->
+            <div class="data-panel" style="margin-bottom:30px;">
+                <h3 style="border-bottom:2px solid var(--gold);padding-bottom:12px;">
+                    <i class="fas fa-sliders-h" style="color:var(--gold);margin-right:10px;"></i>General Configuration
+                </h3>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-dollar-sign" style="width:18px;color:var(--gold);"></i> Global Currency
+                            </h4>
+                            <p>Standard transaction unit for all invoices</p>
+                        </div>
+                        <select
+                            style="border:1px solid #eee;border-radius:8px;padding:6px 12px;background:#f8f9fa;font-size:0.9rem;font-weight:600;color:var(--forest);cursor:pointer;outline:none;">
+                            <option>USD ($)</option>
+                            <option>EUR (€)</option>
+                            <option>GBP (£)</option>
+                            <option>AED (د.إ)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-globe" style="width:18px;color:var(--gold);"></i> Default Timezone</h4>
+                            <p>Server-side time zone for scheduling</p>
+                        </div>
+                        <span class="setting-value">UTC +05:30</span>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-tools" style="width:18px;color:#f9a825;"></i> Maintenance Mode</h4>
+                            <p>Disable public access during updates</p>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-sync-alt" style="width:18px;color:var(--gold);"></i> Auto-Sync Interval
+                            </h4>
+                            <p>Frequency of live data refresh</p>
+                        </div>
+                        <div style="width:130px;">
+                            <input type="range" min="1" max="15" value="5" style="width:100%;accent-color:var(--gold);"
+                                oninput="this.nextElementSibling.innerText=this.value+' mins'">
+                            <div style="font-size:0.75rem;text-align:center;margin-top:5px;font-weight:600;">5 mins
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-language" style="width:18px;color:var(--forest);"></i> Default Language
+                            </h4>
+                            <p>UI language for admin panel</p>
+                        </div>
+                        <select
+                            style="border:1px solid #eee;border-radius:8px;padding:6px 12px;background:#f8f9fa;font-size:0.9rem;font-weight:600;color:var(--forest);cursor:pointer;outline:none;">
+                            <option>English (US)</option>
+                            <option>Arabic (AR)</option>
+                            <option>French (FR)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-moon" style="width:18px;color:#5b8dee;"></i> Dark Mode Interface</h4>
+                            <p>Admin panel appearance preference</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Security & Privacy ── -->
+            <div class="data-panel" style="margin-bottom:30px;">
+                <h3 style="border-bottom:2px solid #C8686F;padding-bottom:12px;">
+                    <i class="fas fa-shield-alt" style="color:#C8686F;margin-right:10px;"></i>Security &amp; Privacy
+                </h3>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-key" style="width:18px;color:#C8686F;"></i> Two-Factor Auth</h4>
+                            <p>Mandatory for all admin accounts</p>
+                        </div>
+                        <span
+                            style="background:#e8f5e9;padding:5px 12px;border-radius:20px;font-size:0.85rem;font-weight:700;color:#2e7d32;">
+                            <i class="fas fa-check-circle"></i> ENFORCED
+                        </span>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-bug" style="width:18px;color:#f9a825;"></i> Debug Logging</h4>
+                            <p>Verbose system event tracking</p>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-network-wired" style="width:18px;color:var(--forest);"></i> IP
+                                Whitelisting</h4>
+                            <p>Restrict access to specific IP ranges</p>
+                        </div>
+                        <button onclick="alert('IP Whitelist Manager — 8 ranges active')"
+                            style="border:1px solid var(--gold);color:var(--gold);background:transparent;border-radius:8px;padding:6px 14px;cursor:pointer;font-size:0.85rem;font-weight:600;">
+                            Manage List <i class="fas fa-external-link-alt" style="font-size:0.7rem;"></i>
+                        </button>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-plug" style="width:18px;color:#2e7d32;"></i> API Access Status</h4>
+                            <p>Connectivity to external gateways</p>
+                        </div>
+                        <span
+                            style="background:#e8f5e9;padding:5px 12px;border-radius:20px;font-size:0.85rem;font-weight:700;color:#2e7d32;">
+                            <i class="fas fa-circle" style="font-size:8px;"></i> Online
+                        </span>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-clock" style="width:18px;color:#5b8dee;"></i> Session Timeout</h4>
+                            <p>Auto-logout idle admin sessions after</p>
+                        </div>
+                        <div style="width:130px;">
+                            <input type="range" min="5" max="60" value="30" style="width:100%;accent-color:#5b8dee;"
+                                oninput="this.nextElementSibling.innerText=this.value+' min'">
+                            <div style="font-size:0.75rem;text-align:center;margin-top:5px;font-weight:600;">30 min
+                            </div>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-user-lock" style="width:18px;color:#C8686F;"></i> Brute Force
+                                Protection</h4>
+                            <p>Block IP after 5 failed login attempts</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Notification Settings ── -->
+            <div class="data-panel" style="margin-bottom:30px;">
+                <h3 style="border-bottom:2px solid #5b8dee;padding-bottom:12px;">
+                    <i class="fas fa-bell" style="color:#5b8dee;margin-right:10px;"></i>Notification &amp; Alerts
+                </h3>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-envelope" style="width:18px;color:#5b8dee;"></i> Email Alerts</h4>
+                            <p>Receive critical system alerts via email</p>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-mobile-alt" style="width:18px;color:#f9a825;"></i> SMS Notifications
+                            </h4>
+                            <p>Send security alerts via SMS gateway</p>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-seedling" style="width:18px;color:#2e7d32;"></i> Low Stock Alerts</h4>
+                            <p>Notify when inventory drops below threshold</p>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-at" style="width:18px;color:var(--forest);"></i> Alert Recipients</h4>
+                            <p>Primary email for system notifications</p>
+                        </div>
+                        <span class="setting-value" style="font-size:0.85rem;">admin@petalbloom.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Backup & Recovery ── -->
+            <div class="data-panel" style="margin-bottom:30px;">
+                <h3 style="border-bottom:2px solid #2e7d32;padding-bottom:12px;">
+                    <i class="fas fa-cloud-upload-alt" style="color:#2e7d32;margin-right:10px;"></i>Backup &amp;
+                    Recovery
+                </h3>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-calendar-check" style="width:18px;color:#2e7d32;"></i> Last Full Backup
+                            </h4>
+                            <p>Complete system snapshot with all assets</p>
+                        </div>
+                        <span class="setting-value" style="color:#2e7d32;">Today · 06:00 AM</span>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-redo" style="width:18px;color:var(--gold);"></i> Backup Schedule</h4>
+                            <p>Automated backup frequency</p>
+                        </div>
+                        <select
+                            style="border:1px solid #eee;border-radius:8px;padding:6px 12px;background:#f8f9fa;font-size:0.9rem;font-weight:600;color:var(--forest);cursor:pointer;outline:none;">
+                            <option>Daily at 06:00 AM</option>
+                            <option>Every 12 Hours</option>
+                            <option>Weekly</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-hdd" style="width:18px;color:#5b8dee;"></i> Backup Retention</h4>
+                            <p>Number of snapshots to keep</p>
+                        </div>
+                        <span class="setting-value">30 Days</span>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-cloud" style="width:18px;color:#C8686F;"></i> Off-site Cloud Storage
+                            </h4>
+                            <p>Replicate backups to cloud endpoint</p>
+                        </div>
+                    </div>
+                    <div class="setting-item" style="grid-column:1/-1;">
+                        <div class="setting-info">
+                            <h4><i class="fas fa-database" style="width:18px;color:#2e7d32;"></i> System Restore</h4>
+                            <p>Roll back to a previous stable snapshot point</p>
+                        </div>
+                        <button onclick="alert('Restore Manager: 30 restore points available')"
+                            style="background:linear-gradient(135deg,var(--forest),#2d5a3e);color:#fff;border:none;border-radius:8px;padding:8px 20px;cursor:pointer;font-size:0.85rem;font-weight:600;">
+                            <i class="fas fa-history"></i> View Restore Points
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Core Integration Module Status ── -->
+            <div class="data-panel" style="margin-bottom:40px;">
+                <h3 style="padding-bottom:12px;border-bottom:2px solid #eee;">
+                    <i class="fas fa-puzzle-piece" style="color:var(--gold);margin-right:10px;"></i>Core Integration
+                    Modules
+                </h3>
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:15px;">
+                    <div style="padding:18px;background:#f8f9fa;border-radius:12px;border-left:4px solid #2e7d32;">
+                        <div style="font-size:0.75rem;color:#888;margin-bottom:6px;letter-spacing:0.1em;">EMAIL RELAY
+                        </div>
+                        <div style="font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-check-circle" style="color:#2e7d32;"></i> ACTIVE
+                        </div>
+                        <div style="font-size:0.75rem;color:#aaa;margin-top:5px;">Mailgun · 4ms latency</div>
+                    </div>
+                    <div style="padding:18px;background:#f8f9fa;border-radius:12px;border-left:4px solid #2e7d32;">
+                        <div style="font-size:0.75rem;color:#888;margin-bottom:6px;letter-spacing:0.1em;">PAYMENT API
+                        </div>
+                        <div style="font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-check-circle" style="color:#2e7d32;"></i> SECURE
+                        </div>
+                        <div style="font-size:0.75rem;color:#aaa;margin-top:5px;">Stripe v3 · SSL OK</div>
+                    </div>
+                    <div style="padding:18px;background:#fff8e1;border-radius:12px;border-left:4px solid #f9a825;">
+                        <div style="font-size:0.75rem;color:#888;margin-bottom:6px;letter-spacing:0.1em;">SMS GATEWAY
+                        </div>
+                        <div style="font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-exclamation-triangle" style="color:#f9a825;"></i> LATENCY
+                        </div>
+                        <div style="font-size:0.75rem;color:#aaa;margin-top:5px;">Twilio · 480ms avg</div>
+                    </div>
+                    <div style="padding:18px;background:#f8f9fa;border-radius:12px;border-left:4px solid #2e7d32;">
+                        <div style="font-size:0.75rem;color:#888;margin-bottom:6px;letter-spacing:0.1em;">CDN EDGE</div>
+                        <div style="font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-check-circle" style="color:#2e7d32;"></i> OPTIMIZED
+                        </div>
+                        <div style="font-size:0.75rem;color:#aaa;margin-top:5px;">Cloudflare · 99.9% hit</div>
+                    </div>
+                    <div style="padding:18px;background:#f8f9fa;border-radius:12px;border-left:4px solid #2e7d32;">
+                        <div style="font-size:0.75rem;color:#888;margin-bottom:6px;letter-spacing:0.1em;">INVENTORY API
+                        </div>
+                        <div style="font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-check-circle" style="color:#2e7d32;"></i> SYNCED
+                        </div>
+                        <div style="font-size:0.75rem;color:#aaa;margin-top:5px;">Last sync: 2m ago</div>
+                    </div>
+                    <div style="padding:18px;background:#f8f9fa;border-radius:12px;border-left:4px solid #2e7d32;">
+                        <div style="font-size:0.75rem;color:#888;margin-bottom:6px;letter-spacing:0.1em;">CRM CONNECTOR
+                        </div>
+                        <div style="font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-check-circle" style="color:#2e7d32;"></i> LIVE
+                        </div>
+                        <div style="font-size:0.75rem;color:#aaa;margin-top:5px;">HubSpot · 427 contacts</div>
+                    </div>
+                    <div style="padding:18px;background:#feebee;border-radius:12px;border-left:4px solid #C8686F;">
+                        <div style="font-size:0.75rem;color:#888;margin-bottom:6px;letter-spacing:0.1em;">ANALYTICS SDK
+                        </div>
+                        <div style="font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-times-circle" style="color:#C8686F;"></i> OFFLINE
+                        </div>
+                        <div style="font-size:0.75rem;color:#C8686F;margin-top:5px;">Check API key · Action needed</div>
+                    </div>
+                    <div style="padding:18px;background:#f8f9fa;border-radius:12px;border-left:4px solid #5b8dee;">
+                        <div style="font-size:0.75rem;color:#888;margin-bottom:6px;letter-spacing:0.1em;">CLOUD BACKUP
+                        </div>
+                        <div style="font-weight:700;color:var(--forest);display:flex;align-items:center;gap:8px;">
+                            <i class="fas fa-cloud" style="color:#5b8dee;"></i> SCHEDULED
+                        </div>
+                        <div style="font-size:0.75rem;color:#aaa;margin-top:5px;">Next run: 06:00 AM</div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /#settings -->
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const links = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('.section-content');
+        const title = document.getElementById('secTitle');
+        const desc = document.getElementById('secDesc');
+
+        // Chart Instance Variables
+        let salesChart, revenueDoughnut, stockPie, varietyBar, orderVolChart, logisticsChart, tierChart, performanceChart, securityChart, storageChart;
+
+        // Chart Theme Colors
+        const colors = {
+            gold: '#C9A050',
+            forest: '#1E2D24',
+            sage: '#4A5D4E',
+            cream: '#FAF6F1',
+            rose: '#C8686F',
+            dusty: '#A67E6F'
+        };
+
+        links.forEach(l => {
+            l.addEventListener('click', (e) => {
+                // Allow logout link to function normally
+                if (l.classList.contains('btn-logout')) return;
+
+                e.preventDefault();
+                const targetId = l.dataset.sec;
+
+                links.forEach(x => x.classList.remove('active'));
+                l.classList.add('active');
+
+                sections.forEach(s => s.classList.remove('active'));
+                const targetSec = document.getElementById(targetId);
+                if (targetSec) targetSec.classList.add('active');
+
+                title.innerText = l.innerText.trim();
+                desc.innerText = "Viewing real-time administrative data for: " + l.innerText.trim();
+
+                // Initialize Charts for active section
+                if (targetId === 'analytics') initAnalyticsCharts();
+                if (targetId === 'inventory') initInventoryCharts();
+                if (targetId === 'orders') initOrdersCharts();
+                if (targetId === 'supply') initSupplyCharts();
+                if (targetId === 'customers') initCustomersCharts();
+                if (targetId === 'settings') initSettingsCharts();
+
+                if (window.innerWidth <= 991) {
+                    document.getElementById('sidebar').classList.remove('show');
+                }
+            });
+        });
+
+        // --- Chart Initialization Functions ---
+
+        function initAnalyticsCharts() {
+            // Sales Performance (Line)
+            const salesCtx = document.getElementById('salesChart');
+            if (salesCtx) {
+                if (salesChart) salesChart.destroy();
+                salesChart = new Chart(salesCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Sept 1', 'Sept 5', 'Sept 10', 'Sept 15', 'Sept 20', 'Sept 25', 'Sept 30'],
+                        datasets: [{
+                            label: 'Daily Revenue ($)',
+                            data: [1200, 2100, 1800, 2400, 1900, 2800, 3100],
+                            borderColor: colors.gold,
+                            backgroundColor: 'rgba(201, 160, 80, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4,
+                            pointRadius: 4,
+                            pointBackgroundColor: '#fff',
+                            pointBorderColor: colors.gold
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)' } },
+                            x: { grid: { display: false } }
+                        }
+                    }
+                });
+            }
+
+            // Revenue Stream (Doughnut)
+            const revCtx = document.getElementById('revenueDoughnut');
+            if (revCtx) {
+                if (revenueDoughnut) revenueDoughnut.destroy();
+                revenueDoughnut = new Chart(revCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Corporate', 'Event', 'Retail'],
+                        datasets: [{
+                            data: [32500, 28400, 23350],
+                            backgroundColor: [colors.forest, colors.gold, colors.rose],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '70%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: { boxWidth: 12, font: { size: 11 } }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function initInventoryCharts() {
+            // Stock Status (Pie)
+            const stockCtx = document.getElementById('stockPieChart');
+            if (stockCtx) {
+                if (stockPie) stockPie.destroy();
+                stockPie = new Chart(stockCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['In Stock', 'Low Stock', 'Out of Stock'],
+                        datasets: [{
+                            data: [85, 10, 5],
+                            backgroundColor: [colors.forest, '#ffb74d', '#e57373'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { position: 'bottom' } }
+                    }
+                });
+            }
+
+            // Variety Bar
+            const varietyCtx = document.getElementById('varietyBarChart');
+            if (varietyCtx) {
+                if (varietyBar) varietyBar.destroy();
+                varietyBar = new Chart(varietyCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Roses', 'Lilies', 'Peonies', 'Tulips', 'Orchids'],
+                        datasets: [{
+                            label: 'Quantity',
+                            data: [1240, 42, 0, 856, 156],
+                            backgroundColor: colors.gold,
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: { x: { grid: { display: false } } }
+                    }
+                });
+            }
+        }
+
+        function initOrdersCharts() {
+            const volCtx = document.getElementById('orderVolumeChart');
+            if (volCtx) {
+                if (orderVolChart) orderVolChart.destroy();
+                orderVolChart = new Chart(volCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Orders',
+                            data: [45, 38, 52, 61, 75, 92, 84],
+                            backgroundColor: colors.forest,
+                            borderRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+        }
+
+        function initSupplyCharts() {
+            const logCtx = document.getElementById('logisticsChart');
+            if (logCtx) {
+                if (logisticsChart) logisticsChart.destroy();
+                logisticsChart = new Chart(logCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Speed', 'Cost', 'Reliability', 'Safety', 'Volume'],
+                        datasets: [{
+                            label: 'Logistics Matrix',
+                            data: [92, 78, 96, 88, 85],
+                            backgroundColor: 'rgba(201, 160, 80, 0.2)',
+                            borderColor: colors.gold,
+                            pointBackgroundColor: colors.gold,
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                beginAtZero: true,
+                                max: 100,
+                                ticks: { display: false },
+                                grid: { color: 'rgba(0,0,0,0.05)' },
+                                pointLabels: { font: { size: 10 } }
+                            }
+                        },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+        }
+
+        function initCustomersCharts() {
+            const tierCtx = document.getElementById('tierChart');
+            if (tierCtx) {
+                if (tierChart) tierChart.destroy();
+                tierChart = new Chart(tierCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Platinum', 'Gold', 'Standard'],
+                        datasets: [{
+                            data: [142, 285, 95],
+                            backgroundColor: [colors.gold, colors.dusty, colors.forest],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { position: 'bottom' } }
+                    }
+                });
+            }
+        }
+
+        function initSettingsCharts() {
+            // Performance Monitor (Line)
+            const perfCtx = document.getElementById('performanceChart');
+            if (perfCtx) {
+                if (performanceChart) performanceChart.destroy();
+                performanceChart = new Chart(perfCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['12:00', '12:10', '12:20', '12:30', '12:40', '12:50', '13:00'],
+                        datasets: [
+                            {
+                                label: 'CPU Usage (%)',
+                                data: [15, 22, 18, 35, 28, 42, 30],
+                                borderColor: colors.gold,
+                                backgroundColor: 'transparent',
+                                borderWidth: 2,
+                                tension: 0.4
+                            },
+                            {
+                                label: 'RAM Usage (%)',
+                                data: [45, 48, 47, 52, 50, 55, 54],
+                                borderColor: colors.forest,
+                                backgroundColor: 'transparent',
+                                borderWidth: 2,
+                                tension: 0.4
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } },
+                        scales: { y: { beginAtZero: true, max: 100 } }
+                    }
+                });
+            }
+
+            // Security Incident Log (Bar)
+            const secCtx = document.getElementById('securityChart');
+            if (secCtx) {
+                if (securityChart) securityChart.destroy();
+                securityChart = new Chart(secCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [
+                            {
+                                label: 'Blocked IPs',
+                                data: [12, 19, 3, 5, 2, 3, 7],
+                                backgroundColor: colors.forest
+                            },
+                            {
+                                label: 'Failed Logins',
+                                data: [2, 3, 20, 5, 1, 4, 3],
+                                backgroundColor: colors.rose
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 10 } } } },
+                        scales: { y: { beginAtZero: true } }
+                    }
+                });
+            }
+
+            // Storage Breakdown (Doughnut)
+            const storCtx = document.getElementById('storageChart');
+            if (storCtx) {
+                if (storageChart) storageChart.destroy();
+                storageChart = new Chart(storCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Images', 'Database', 'Cache'],
+                        datasets: [{
+                            data: [12.4, 2.8, 1.1],
+                            backgroundColor: [colors.gold, colors.forest, colors.dusty],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '65%',
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+        }
+
+        // Initialize Global Analytics Charts on Load
+        initAnalyticsCharts();
+
+        // Mobile Ham
+        document.getElementById('hamAdmin').addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('sidebar').classList.toggle('show');
+        });
+
+        // Close sidebar on outside click
+        document.addEventListener('click', (e) => {
+            const sidebar = document.getElementById('sidebar');
+            const ham = document.getElementById('hamAdmin');
+            if (sidebar.classList.contains('show') && !sidebar.contains(e.target) && !ham.contains(e.target)) {
+                sidebar.classList.remove('show');
+            }
+        });
+
+        // Direction toggle for both buttons
+        const dirToggles = document.querySelectorAll('#dirToggle, #dirToggleDesktop');
+        dirToggles.forEach(dt => {
+            if (dt) {
+                dt.addEventListener('click', () => {
+                    const h = document.documentElement;
+                    const isRTL = h.getAttribute('dir') === 'rtl';
+                    h.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

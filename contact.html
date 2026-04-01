@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Contact Us | Petal &amp; Bloom Luxury Florals</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <style>
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(21, 9, 16, 0.6), rgba(21, 9, 16, 0.6)), url('https://picsum.photos/seed/contact_v2/1920/1080');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .about-header-txt h1 {
+            font-family: var(--ff);
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 10px;
+        }
+
+        .breadcrumbs {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--gl);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+        }
+
+        .contact-info-card {
+            background: var(--p);
+            color: #fff;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: var(--shl);
+        }
+
+        .contact-info-card h2 {
+            font-family: var(--ff);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--gl);
+        }
+
+        .ci-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .ci-item i {
+            font-size: 1.5rem;
+            color: var(--g);
+        }
+
+        .contact-form-wrap h2 {
+            font-family: var(--ff);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 10px;
+            color: var(--txm);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px 0;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            font-family: var(--fb);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--p);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="header" id="header">
+        <div class="hdr-wrap">
+            <a href="index.html" class="logo">
+                <svg class="logo-svg" viewBox="0 0 52 52">
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(60 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(120 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(180 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(240 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(300 26 26)" />
+                    <circle cx="26" cy="26" r="9" fill="#fff" opacity=".95" />
+                    <circle cx="26" cy="26" r="5" fill="#C9A050" />
+                </svg>
+                <div class="logo-txt"><span class="l-name">Petal &amp; Bloom</span><span class="l-tag">Luxury
+                        Florals</span></div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nl">
+                    <li class="ni has-drop"><a href="#" class="nl-a">Home <i class="fas fa-chevron-down"></i></a>
+                        <div class="drop"><a href="index.html" class="di">Home 1</a><a href="home2.html" class="di">Home
+                                2</a></div>
+                    </li>
+                    <li class="ni"><a href="about.html" class="nl-a">About</a></li>
+                    <li class="ni"><a href="services.html" class="nl-a">Services</a></li>
+                    <li class="ni"><a href="contact.html" class="nl-a active">Contact</a></li>
+                    <li class="ni has-drop"><a href="#" class="nl-a">Dashboard <i class="fas fa-chevron-down"></i></a>
+                        <div class="drop"><a href="user-dashboard.html" class="di"><i class="fas fa-user-circle"></i>
+                                User Dashboard</a><a href="admin-dashboard.html" class="di"><i
+                                    class="fas fa-shield-halved"></i> Admin Dashboard</a></div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hdr-right">
+                <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL"><i class="fas fa-globe"></i></button>
+                <a href="login.html" class="btn-login"><i class="fas fa-user"></i><span>Login</span></a>
+                <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="about-header-txt">
+                <span class="breadcrumbs">Home / Contact</span>
+                <h1 class="ani-up">Connect With Us</h1>
+                <p class="ani-up d1">Our Artisans Are Here to Assist You</p>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="con">
+                <div class="contact-grid">
+                    <div class="contact-info-card ani-left"
+                        style="background: var(--dark); border: 1px solid var(--g);">
+                        <span class="eye light">Inquiries</span>
+                        <h2>Liaise With Us</h2>
+                        <div class="ci-item">
+                            <i class="fas fa-map-pin"></i>
+                            <div>
+                                <h4
+                                    style="color: var(--gl); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 5px;">
+                                    Atelier Address</h4>
+                                <p>12 Floral Court, Chelsea,<br>London, SW3 5UE</p>
+                            </div>
+                        </div>
+                        <div class="ci-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4
+                                    style="color: var(--gl); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 5px;">
+                                    Direct Line</h4>
+                                <p>+44 20 7946 0958</p>
+                            </div>
+                        </div>
+                        <div class="ci-item">
+                            <i class="fas fa-paper-plane"></i>
+                            <div>
+                                <h4
+                                    style="color: var(--gl); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.8rem; margin-bottom: 5px;">
+                                    Digital Mail</h4>
+                                <p>hello@petalandbloom.co</p>
+                            </div>
+                        </div>
+                        <div class="ft-soc"
+                            style="margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;">
+                            <a href="#" style="color:var(--gl)"><i class="fab fa-instagram"></i></a>
+                            <a href="#" style="color:var(--gl)"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" style="color:var(--gl)"><i class="fab fa-pinterest"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrap ani-right" style="padding-left: 20px;">
+                        <span class="eye">Consultation</span>
+                        <h2 class="st">Begin Your Journey</h2>
+                        <p style="margin-bottom: 40px; color: var(--txm);">Please provide a few details below. Our
+                            floral architects will review your request and respond within 24 hours.</p>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" class="form-control" placeholder="E.g. Alexander Pierce" required
+                                    style="border-bottom: 1.5px solid var(--pd);">
+                            </div>
+                            <div class="form-group">
+                                <label>Electronic Mail</label>
+                                <input type="email" class="form-control" placeholder="E.g. alexander@example.com"
+                                    required style="border-bottom: 1.5px solid var(--pd);">
+                            </div>
+                            <div class="form-group">
+                                <label>Nature of Inquiry</label>
+                                <select class="form-control"
+                                    style="border-bottom: 1.5px solid var(--pd); background: transparent;">
+                                    <option>Bespoke Wedding Design</option>
+                                    <option>Corporate Botanical Retainer</option>
+                                    <option>Private Event Installation</option>
+                                    <option>Subscription Inquiries</option>
+                                    <option>Press & Media</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Vision & Requirements</label>
+                                <textarea class="form-control"
+                                    placeholder="Tell us about the atmosphere you wish to create..."
+                                    style="border-bottom: 1.5px solid var(--pd);"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg w100" style="margin-top: 20px;">Initiate
+                                Consultation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXTRA 10 SECTIONS -->
+
+        <!-- VIP ACCESS -->
+        <section class="sec bg-dark center" style="background: #111; color: #fff;">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye light">Priority</span>
+                    <h2 class="st light">VIP Concierge Access</h2>
+                    <p class="light" style="max-width: 600px; margin: 0 auto;">Are you a member of our Rose Gold loyalty
+                        tier? Please use your dedicated ID for priority response times under 2 hours.</p>
+                    <a href="#" class="btn btn-gold mt40">Member Login</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEPARTMENTS -->
+        <section class="sec">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">Direct Liaison</span>
+                    <h2 class="st">Departmental Contacts</h2>
+                </div>
+                <div class="services-grid mt60">
+                    <div class="stat-card ani-up" style="padding: 30px; border: 1px solid #eee;">
+                        <h4 style="font-family: var(--ff); font-size: 1.5rem;">Events & Weddings</h4>
+                        <p style="color: var(--g);">events@petalandbloom.co</p>
+                    </div>
+                    <div class="stat-card ani-up d1" style="padding: 30px; border: 1px solid #eee;">
+                        <h4 style="font-family: var(--ff); font-size: 1.5rem;">Corporate Retainers</h4>
+                        <p style="color: var(--g);">corporate@petalandbloom.co</p>
+                    </div>
+                    <div class="stat-card ani-up d2" style="padding: 30px; border: 1px solid #eee;">
+                        <h4 style="font-family: var(--ff); font-size: 1.5rem;">Press & Media</h4>
+                        <p style="color: var(--g);">press@petalandbloom.co</p>
+                    </div>
+                    <div class="stat-card ani-up d3" style="padding: 30px; border: 1px solid #eee;">
+                        <h4 style="font-family: var(--ff); font-size: 1.5rem;">Career Opportunities</h4>
+                        <p style="color: var(--g);">talent@petalandbloom.co</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERNATIONAL -->
+        <section class="sec bg-cream">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">Global Presence</span>
+                    <h2 class="st">Our Worldwide Ateliers</h2>
+                </div>
+                <div class="prod-grid mt60">
+                    <div class="center ani-up">
+                        <h4 style="font-family: var(--ff);">London</h4>
+                        <p style="font-size: 0.8rem;">+44 20 7946 0958</p>
+                    </div>
+                    <div class="center ani-up d1">
+                        <h4 style="font-family: var(--ff);">Paris</h4>
+                        <p style="font-size: 0.8rem;">+33 1 42 68 53 00</p>
+                    </div>
+                    <div class="center ani-up d2">
+                        <h4 style="font-family: var(--ff);">New York</h4>
+                        <p style="font-size: 0.8rem;">+1 212-555-0198</p>
+                    </div>
+                    <div class="center ani-up d3">
+                        <h4 style="font-family: var(--ff);">Dubai</h4>
+                        <p style="font-size: 0.8rem;">+971 4 362 7500</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- VISIT US -->
+        <section class="sec">
+            <div class="con">
+                <div class="loyalty-g">
+                    <div class="loyalty-txt ani-left">
+                        <span class="eye">Exclusivity</span>
+                        <h2 class="st">Visit the Boutique</h2>
+                        <p>Our Chelsea atelier is open for private viewings by appointment only. Experience the
+                            fragrance and texture of our current collections in person.</p>
+                        <a href="#" class="btn btn-outline" style="border-color: var(--p);">Book A Private Visit</a>
+                    </div>
+                    <div class="loyalty-img ani-right">
+                        <img src="https://picsum.photos/seed/boutique/800/600" alt="Boutique"
+                            style="border-radius: 40px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL -->
+        <section class="sec bg-dark center" style="background: #1a1a1a; color: #fff;">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye light">Community</span>
+                    <h2 class="st light">Botanical Inspiration</h2>
+                    <p class="light">Follow our journey and see our latest installations daily.</p>
+                    <div class="mt40" style="display: flex; justify-content: center; gap: 40px; font-size: 2.5rem;">
+                        <a href="#" style="color: var(--gl);"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: var(--gl);"><i class="fab fa-pinterest"></i></a>
+                        <a href="#" style="color: var(--gl);"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GIFT CARDS -->
+        <section class="sec">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">Giftings</span>
+                    <h2 class="st">Gift Card Inquiries</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">Checking a balance or want to purchase a corporate gift
+                        card volume? Our dedicated gifting team is here to assist.</p>
+                    <a href="#" class="btn btn-primary mt40">Gifting Support</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUSTAINABILITY -->
+        <section class="sec bg-cream">
+            <div class="con">
+                <div class="loyalty-g">
+                    <div class="loyalty-img ani-left">
+                        <img src="https://picsum.photos/seed/green/800/600" alt="Green" style="border-radius: 40px;">
+                    </div>
+                    <div class="loyalty-txt ani-right">
+                        <span class="eye">Purpose</span>
+                        <h2 class="st">Sustainability Feedback</h2>
+                        <p>We are constantly refining our ethical sourcing and packaging. If you have suggestions or
+                            questions about our environmental impact, we'd love to hear from you.</p>
+                        <a href="mailto:eco@petalandbloom.co" class="btn btn-outline"
+                            style="border-color: var(--g); color: var(--g);">Email Our Eco-Team</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRESS KIT -->
+        <section class="sec">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">Media</span>
+                    <h2 class="st">Press Kit Request</h2>
+                    <p>Journalists and editors can request high-resolution assets and brand guidelines through our
+                        digital press portal.</p>
+                    <a href="#" class="btn btn-gold mt40">Download Press Kit</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="sec bg-cream">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">Assistance</span>
+                    <h2 class="st">Frequently Asked</h2>
+                </div>
+                <div class="faq-w mt60" style="max-width: 800px; margin: 0 auto;">
+                    <div style="border-bottom: 1px solid #ddd; padding: 20px 0;">
+                        <h4 style="font-family: var(--ff); cursor: pointer;">Do you offer same-day delivery?</h4>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Yes, in London for orders placed before 1 PM.
+                        </p>
+                    </div>
+                    <div style="border-bottom: 1px solid #ddd; padding: 20px 0;">
+                        <h4 style="font-family: var(--ff); cursor: pointer;">Can I customize an arrangement?</h4>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Absolutely. Our designers work with you to
+                            choose specific blooms and styles.</p>
+                    </div>
+                    <div style="padding: 20px 0;">
+                        <h4 style="font-family: var(--ff); cursor: pointer;">What is your subscription cancellation
+                            policy?</h4>
+                        <p style="font-size: 0.9rem; margin-top: 10px;">Subscriptions can be paused or cancelled at any
+                            time with 48 hours notice.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MAP PREVIEW (Existing but shifted) -->
+        <div class="con" style="margin-bottom: 120px">
+            <div class="sh center">
+                <span class="eye">Locate Us</span>
+                <h2 class="st">Interactive Atelier Map</h2>
+            </div>
+            <div
+                style="width:100%; height:500px; background:#f0f0f0; border-radius:40px; overflow:hidden; border: 1px solid rgba(0,0,0,0.05); position: relative; margin-top: 40px;">
+                <div
+                    style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to bottom, rgba(255,255,255,0.2), transparent);">
+                </div>
+                <img src="https://picsum.photos/seed/london_m/1300/500" alt="Map Location"
+                    style="width:100%; height:100%; object-fit:cover; filter: grayscale(1) contrast(1.1); opacity: 0.8;">
+                <div
+                    style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: var(--g); border-radius: 50%; color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 10px rgba(201, 160, 80, 0.2); animation: pulse 2s infinite;">
+                    <i class="fas fa-location-dot" style="font-size: 1.5rem;"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="con">
+            <p class="center">&copy; 2024 Petal &amp; Bloom Luxury Florals</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

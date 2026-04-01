@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home 2 – Petal & Bloom</title>
+    <meta name="description"
+        content="Explore our curated collections and floral inspirations on Home 2 – a fresh, vibrant experience.">
+    <!-- Core Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="css/rtl-fixes.css">
+    <!-- Google Font for premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* Home‑2 specific overrides – a lighter, airy feel */
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #fdfdfd;
+            color: #333;
+        }
+
+        .hdr {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero2 {
+            position: relative;
+            height: 80vh;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero2 h1 {
+            font-size: 4rem;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .hero2 p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-top: 1rem;
+        }
+
+        .section {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #2c3e50;
+        }
+
+        .grid {
+            display: grid;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-body h3 {
+            margin: 0 0 .5rem;
+            font-size: 1.4rem;
+            color: #2c3e50;
+        }
+
+        .card-body p {
+            margin: 0;
+            font-size: .95rem;
+            color: #666;
+        }
+
+        .cta {
+            display: inline-block;
+            padding: 12px 28px;
+            background: #e67e22;
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background .3s;
+        }
+
+        .cta:hover {
+            background: #d35400;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body class="h2-page">
+    <!-- Header – reuse same structure as index for consistency -->
+    <header class="header" id="header">
+        <div class="hdr-wrap">
+            <a href="index.html" class="logo">
+                <svg class="logo-svg" viewBox="0 0 52 52">
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(60 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(120 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(180 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(240 26 26)" />
+                    <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" transform="rotate(300 26 26)" />
+                    <circle cx="26" cy="26" r="9" fill="#fff" opacity=".95" />
+                    <circle cx="26" cy="26" r="5" fill="#C9A050" />
+                </svg>
+                <div class="logo-txt"><span class="l-name">Petal &amp; Bloom</span><span class="l-tag">Luxury
+                        Florals</span></div>
+            </a>
+            <nav class="nav" id="mainNav">
+                <ul class="nl">
+                    <li class="ni has-drop"><a href="#" class="nl-a active">Home <i class="fas fa-chevron-down"></i></a>
+                        <div class="drop"><a href="index.html" class="di active">Home 1</a><a href="home2.html"
+                                class="di">Home 2</a></div>
+                    </li>
+                    <li class="ni"><a href="about.html" class="nl-a">About</a></li>
+                    <li class="ni"><a href="services.html" class="nl-a">Services</a></li>
+                    <li class="ni"><a href="contact.html" class="nl-a">Contact</a></li>
+                    <li class="ni has-drop"><a href="#" class="nl-a">Dashboard <i class="fas fa-chevron-down"></i></a>
+                        <div class="drop"><a href="user-dashboard.html" class="di">User Dashboard</a><a
+                                href="admin-dashboard.html" class="di">Admin Dashboard</a></div>
+                    </li>
+                </ul>
+            </nav>
+            <div class="hdr-right">
+                <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL"><i class="fas fa-globe"></i></button>
+                <a href="login.html" class="btn-login"><i class="fas fa-user"></i><span>Login</span></a>
+                <button class="hamburger" id="hamburger"
+                    aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. AIRY HERO -->
+        <section class="h2-hero">
+            <div class="h2-hero-txt">
+                <span class="h2-eyebrow ani-down">Spring Collection</span>
+                <h1 class="ani-up d1">A Breath of<br><i style="font-style: italic; color: var(--h2-accent);">Fresh
+                        Air</i></h1>
+                <p class="ani-up d2">Discover curated botanical arrangements that celebrate nature’s ever‑changing
+                    palette. Designed for the modern romantic.</p>
+                <div class="ani-up d3">
+                    <a href="#collections" class="h2-btn">Shop the Season</a>
+                </div>
+            </div>
+            <div class="h2-hero-img ani-left">
+                <!-- Large airy image -->
+            </div>
+        </section>
+
+        <!-- 2. FLORAL MARQUEE -->
+        <section class="h2-marquee">
+            <div class="h2-mq-inner">
+                <span>Sustainable Sourcing</span>
+                <span>Bespoke Arrangements</span>
+                <span>Same-Day Delivery</span>
+                <span>Artisan Floristry</span>
+                <span>Sustainable Sourcing</span>
+                <span>Bespoke Arrangements</span>
+                <span>Same-Day Delivery</span>
+                <span>Artisan Floristry</span>
+            </div>
+        </section>
+
+        <!-- 3. EDITORIAL INTRO -->
+        <section class="h2-sec h2-bg-white">
+            <div class="con">
+                <div class="h2-intro-grid">
+                    <div class="h2-intro-img ani-zoom">
+                        <img src="images/ver5.jpg" alt="Redefining Floral Artistry" style="width:100%; display:block;">
+                    </div>
+                    <div class="h2-intro-txt ani-up">
+                        <span class="h2-eyebrow">The Atelier</span>
+                        <h2 class="h2-title">Redefining<br>Floral Artistry</h2>
+                        <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 30px;">
+                            We approach floristry as a fine art. Away from the heavy, traditional bouquets, our design
+                            philosophy embraces negative space, organic movement, and the natural posture of every stem.
+                        </p>
+                        <ul style="list-style: none; padding: 0; margin-bottom: 40px;">
+                            <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+                                <div style="width: 8px; height: 8px; background: var(--h2-accent); border-radius: 50%;">
+                                </div>
+                                Architecturally inspired silhouettes
+                            </li>
+                            <li style="margin-bottom: 15px; display: flex; align-items: center; gap: 15px;">
+                                <div style="width: 8px; height: 8px; background: var(--h2-accent); border-radius: 50%;">
+                                </div>
+                                Rare, farm-direct blooms
+                            </li>
+                            <li style="display: flex; align-items: center; gap: 15px;">
+                                <div style="width: 8px; height: 8px; background: var(--h2-accent); border-radius: 50%;">
+                                </div>
+                                Sustainable, foam-free mechanics
+                            </li>
+                        </ul>
+                        <a href="about.html" class="h2-btn"
+                            style="background: transparent; color: var(--h2-text) !important;">Discover Our Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. BENTO GRID COLLECTIONS -->
+        <section class="h2-sec" id="collections">
+            <div class="con">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <span class="h2-eyebrow">Curated For You</span>
+                    <h2 class="h2-title">Signature Edits</h2>
+                </div>
+                <div class="bento-grid">
+                    <a href="#" class="bento-item bento-1 ani-up">
+                        <img src="images/ver3.webp" alt="Bridal">
+                        <div class="bento-txt">
+                            <h3>The Bridal Suite</h3>
+                            <p>Ethereal whites and soft blushes.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="bento-item bento-2 ani-up d1">
+                        <img src="images/ver4.jpg" alt="Gifts">
+                        <div class="bento-txt">
+                            <h3>Gifting</h3>
+                            <p>Make someone's day.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="bento-item bento-3 ani-up d2">
+                        <img src="images/ver5.jpg" alt="Dried">
+                        <div class="bento-txt">
+                            <h3>Dried</h3>
+                            <p>Everlasting beauty.</p>
+                        </div>
+                    </a>
+                    <a href="#" class="bento-item bento-4 ani-up d3">
+                        <img src="images/ver7.jpg" alt="Vases">
+                        <div class="bento-txt">
+                            <h3>Vessels</h3>
+                            <p>Ceramics & Glass.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. PARALLAX CANVAS -->
+        <section class="parallax-w">
+            <div class="parallax-txt ani-zoom">
+                <font>"Just living is not enough... one must have sunshine, freedom, and a little flower."</font>
+                <p style="margin-top: 20px; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.9rem;">— Hans
+                    Christian Andersen</p>
+            </div>
+        </section>
+
+        <!-- 6. HORIZONTAL SCROLL (New Arrivals) -->
+        <section class="h2-sec h2-bg-white">
+            <div class="con">
+                <div style="margin-bottom: 60px;">
+                    <span class="h2-eyebrow">Fresh In</span>
+                    <h2 class="h2-title" style="margin: 0;">New Arrivals</h2>
+                </div>
+                <div class="h-scroll ani-left">
+                    <div class="h-item">
+                        <img src="images/ver1.webp" alt="The Juliet">
+                        <h4>The Juliet</h4>
+                        <p style="color: var(--h2-accent);">$125.00</p>
+                    </div>
+                    <div class="h-item">
+                        <img src="images/ver2.jpg" alt="The Provence">
+                        <h4>The Provence</h4>
+                        <p style="color: var(--h2-accent);">$145.00</p>
+                    </div>
+                    <div class="h-item">
+                        <img src="images/ver3.webp" alt="The Monet">
+                        <h4>The Monet</h4>
+                        <p style="color: var(--h2-accent);">$95.00</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. PROCESS ICONS -->
+        <section class="h2-sec">
+            <div class="con">
+                <div class="process-flex">
+                    <div class="p-step ani-up d0">
+                        <div class="p-icon"><i class="fas fa-scissors"></i></div>
+                        <h4 style="font-family: var(--h2-font-head); font-size: 1.8rem; margin-bottom: 10px;">Foraged
+                        </h4>
+                        <p style="font-size: 0.95rem; color: var(--h2-text-light);">Sourced fresh from local,
+                            sustainable farms early each morning.</p>
+                    </div>
+                    <div class="p-step ani-up d1">
+                        <div class="p-icon"><i class="fas fa-spa"></i></div>
+                        <h4 style="font-family: var(--h2-font-head); font-size: 1.8rem; margin-bottom: 10px;">
+                            Conditioned</h4>
+                        <p style="font-size: 0.95rem; color: var(--h2-text-light);">Stems are hydrated, cleaned, and
+                            rested to ensure maximum longevity.</p>
+                    </div>
+                    <div class="p-step ani-up d2">
+                        <div class="p-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h4 style="font-family: var(--h2-font-head); font-size: 1.8rem; margin-bottom: 10px;">Arranged
+                        </h4>
+                        <p style="font-size: 0.95rem; color: var(--h2-text-light);">Crafted by artisans focusing on
+                            color palette and structural flow.</p>
+                    </div>
+                    <div class="p-step ani-up d3">
+                        <div class="p-icon"><i class="fas fa-box-open"></i></div>
+                        <h4 style="font-family: var(--h2-font-head); font-size: 1.8rem; margin-bottom: 10px;">Delivered
+                        </h4>
+                        <p style="font-size: 0.95rem; color: var(--h2-text-light);">Hand-delivered in protective,
+                            beautiful, eco-friendly packaging.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. ACCORDION IMAGES -->
+        <section class="h2-sec h2-bg-white">
+            <div class="con">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <h2 class="h2-title">By Color Palette</h2>
+                </div>
+                <div class="acc-img-wrap ani-zoom">
+                    <div class="acc-panel" style="background-image: url('images/ver4.jpg');">
+                        <div class="acc-txt">
+                            <h3>Pastel Dreams</h3>
+                            <p>Soft pinks & creams</p>
+                        </div>
+                    </div>
+                    <div class="acc-panel" style="background-image: url('images/ver7.jpg');">
+                        <div class="acc-txt">
+                            <h3>Jewel Tones</h3>
+                            <p>Deep ruby & sapphire</p>
+                        </div>
+                    </div>
+                    <div class="acc-panel" style="background-image: url('images/ver8.jpg');">
+                        <div class="acc-txt">
+                            <h3>Pure Whites</h3>
+                            <p>Elegant neutrals</p>
+                        </div>
+                    </div>
+                    <div class="acc-panel" style="background-image: url('images/ver9.webp');">
+                        <div class="acc-txt">
+                            <h3>Sunset Hue</h3>
+                            <p>Warm amber & peach</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. TESTIMONIALS GRID -->
+        <section class="h2-sec">
+            <div class="con">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <span class="h2-eyebrow">Client Love</span>
+                    <h2 class="h2-title">Words of Praise</h2>
+                </div>
+                <div class="t-grid">
+                    <div class="t-card ani-up d0">
+                        <p>"The arrangements from Petal & Bloom aren't just flowers; they're emotional experiences.
+                            Every piece tells a story of elegance."</p>
+                        <h5 style="font-family: var(--h2-font-head); font-size: 1.2rem;">— Lady Elizabeth Kensington
+                        </h5>
+                    </div>
+                    <div class="t-card ani-up d1">
+                        <p>"Absolutely breathtaking. The attention to detail and the quality of the stems are unmatched.
+                            My event was transformed."</p>
+                        <h5 style="font-family: var(--h2-font-head); font-size: 1.2rem;">— Sophia Laurent, Director</h5>
+                    </div>
+                    <div class="t-card ani-up d2">
+                        <p>"I’ve never seen roses so vibrant or beautifully arranged. A true masterclass in modern
+                            floral design."</p>
+                        <h5 style="font-family: var(--h2-font-head); font-size: 1.2rem;">— James Arthur, Architect</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. HOVER REVEAL GUIDE -->
+        <section class="h2-sec h2-bg-white">
+            <div class="con">
+                <div style="margin-bottom: 50px;">
+                    <span class="h2-eyebrow">The Botanical Guide</span>
+                    <h2 class="h2-title">Discover Our Stems</h2>
+                </div>
+                <div class="hover-reveal-list ani-zoom">
+                    <div class="hr-item">
+                        <h3>English Garden Roses</h3>
+                        <span style="color: var(--h2-text-light);">Summer Collection</span>
+                        <img src="images/ver1.webp" alt="Rose" class="hr-img">
+                    </div>
+                    <div class="hr-item">
+                        <h3>Dutch Peonies</h3>
+                        <span style="color: var(--h2-text-light);">Spring Collection</span>
+                        <img src="images/ver2.jpg" alt="Peony" class="hr-img">
+                    </div>
+                    <div class="hr-item">
+                        <h3>Japanese Anemones</h3>
+                        <span style="color: var(--h2-text-light);">Autumn Collection</span>
+                        <img src="images/ver3.webp" alt="Anemone" class="hr-img">
+                    </div>
+                    <div class="hr-item">
+                        <h3>Wild Hellebores</h3>
+                        <span style="color: var(--h2-text-light);">Winter Collection</span>
+                        <img src="images/ver7.jpg" alt="Hellebore" class="hr-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. STATS -->
+        <section class="h2-sec">
+            <div class="con">
+                <div class="stat-flex">
+                    <div class="h2-stat ani-up d0">
+                        <h3>20+</h3>
+                        <p style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem;">Global Partners
+                        </p>
+                    </div>
+                    <div class="h2-stat ani-up d1">
+                        <h3>18k</h3>
+                        <p style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem;">Bouquets
+                            Crafted</p>
+                    </div>
+                    <div class="h2-stat ani-up d2">
+                        <h3>0%</h3>
+                        <p style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem;">Single-Use
+                            Plastic</p>
+                    </div>
+                    <div class="h2-stat ani-up d3">
+                        <h3>14</h3>
+                        <p style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.85rem;">Design Awards
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. JOURNAL / BLOG -->
+        <section class="h2-sec h2-bg-white">
+            <div class="con">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <span class="h2-eyebrow">The Journal</span>
+                    <h2 class="h2-title">Botanical Notes</h2>
+                </div>
+                <div class="j-grid">
+                    <a href="#" class="j-card ani-up d0" style="text-decoration: none; color: inherit;">
+                        <img src="images/flow7.avif" alt="Blog">
+                        <span style="color: var(--h2-accent); font-size: 0.85rem; text-transform: uppercase;">Care
+                            Guide</span>
+                        <h4>Prolonging Your Peonies</h4>
+                        <p style="color: var(--h2-text-light);">Expert tips on keeping your spring arrangements fresh
+                            for over a week...</p>
+                    </a>
+                    <a href="#" class="j-card ani-up d1" style="text-decoration: none; color: inherit;">
+                        <img src="images/flow8.webp" alt="Blog">
+                        <span style="color: var(--h2-accent); font-size: 0.85rem; text-transform: uppercase;">Behind the
+                            Scenes</span>
+                        <h4>A Morning at the Market</h4>
+                        <p style="color: var(--h2-text-light);">Follow our head designer Isabella through the bustling
+                            flower markets of London...</p>
+                    </a>
+                    <a href="#" class="j-card ani-up d2" style="text-decoration: none; color: inherit;">
+                        <img src="images/ver9.webp" alt="Blog">
+                        <span
+                            style="color: var(--h2-accent); font-size: 0.85rem; text-transform: uppercase;">Sustainability</span>
+                        <h4>Foam-Free Mechanics</h4>
+                        <p style="color: var(--h2-text-light);">Why we abandoned floral foam and how we engineer our
+                            large-scale installations...</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 13. FAQ -->
+        <section class="h2-sec h2-faq" style="max-width: 800px; margin: 0 auto;">
+            <div class="con">
+                <div style="text-align: center; margin-bottom: 50px;">
+                    <h2 class="h2-title">Common Inquiries</h2>
+                </div>
+                <details class="ani-up d0">
+                    <summary>Do you offer same-day delivery? <i class="fas fa-plus"
+                            style="color: var(--h2-accent); font-size: 1rem;"></i></summary>
+                    <div class="faq-txt">Yes, for orders placed before 1 PM local time within our central delivery
+                        zones. Our dedicated couriers ensure your blooms arrive fresh and vibrant by sunset.</div>
+                </details>
+                <details class="ani-up d1">
+                    <summary>Can I request specific flowers? <i class="fas fa-plus"
+                            style="color: var(--h2-accent); font-size: 1rem;"></i></summary>
+                    <div class="faq-txt">Absolutely. While we prioritize seasonal availability, our bespoke service can
+                        source almost any bloom with 7 days notice through our international farm network.</div>
+                </details>
+                <details class="ani-up d2">
+                    <summary>Are your workshops beginner friendly? <i class="fas fa-plus"
+                            style="color: var(--h2-accent); font-size: 1rem;"></i></summary>
+                    <div class="faq-txt">Yes! Our Masterclasses are designed for all levels, from complete beginners to
+                        experienced enthusiasts looking to refine their artistic style and technique.</div>
+                </details>
+            </div>
+        </section>
+
+        <!-- 14. BRAND STRIP -->
+        <section class="h2-sec" style="padding: 60px 0; border-top: 1px solid var(--h2-border);">
+            <div class="con">
+                <div style="text-align: center; margin-bottom: 30px;">
+                    <span class="h2-eyebrow" style="color: var(--h2-text-light);">As Seen In</span>
+                </div>
+                <div class="brand-strip ani-zoom">
+                    <!-- Placeholder logos -->
+                    <img src="images/br1.jpg" alt="Vogue">
+                    <img src="images/br2.png" alt="GQ">
+                    <img src="images/br3.webp" alt="Harper's Bazaar">
+                    <img src="images/br4.webp" alt="Architectural Digest">
+                </div>
+            </div>
+        </section>
+
+        <!-- 15. NEWSLETTER CTA FOOTER PREP -->
+        <section class="h2-footer">
+            <div class="h2-footer-content ani-up">
+                <h2 class="h2-title" style="color: #fff;">Join The Atelier</h2>
+                <p style="color: #ccc; font-size: 1.1rem; margin-top: 15px;">Subscribe for seasonal updates, care
+                    guides, and exclusive early access to our workshops.</p>
+                <form class="form-inline">
+                    <input type="email" placeholder="Enter your email address..." required>
+                    <button type="submit" class="h2-btn">Subscribe</button>
+                </form>
+            </div>
+            <!-- The actual footer follows immediately -->
+        </section>
+    </main>
+
+    <!-- Footer – reuse from index for consistency -->
+    <footer class="footer" id="footer"
+        style="background: var(--h2-text); padding-top: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="con">
+            <div class="ft-grid">
+                <div class="ft-brand">
+                    <a href="index.html" class="logo"><svg class="logo-svg" viewBox="0 0 52 52">
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                                transform="rotate(60 26 26)" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                                transform="rotate(120 26 26)" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                                transform="rotate(180 26 26)" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                                transform="rotate(240 26 26)" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                                transform="rotate(300 26 26)" />
+                            <circle cx="26" cy="26" r="9" fill="#fff" opacity=".95" />
+                            <circle cx="26" cy="26" r="5" fill="#D4A373" />
+                        </svg>
+                        <div class="logo-txt"><span class="l-name" style="color: #fff;">Petal &amp; Bloom</span><span
+                                class="l-tag" style="color: #ccc;">Luxury Florals</span></div>
+                    </a>
+                    <p class="ft-desc" style="color: #aaa;">Bringing nature's finest blooms to life's most precious
+                        moments since 2008.</p>
+                    <div class="ft-soc">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="ft-col">
+                    <h5 style="color: #fff;">Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html" style="color: #ccc;">Home 1</a></li>
+                        <li><a href="home2.html" style="color: #ccc;">Home 2</a></li>
+                        <li><a href="about.html" style="color: #ccc;">About Us</a></li>
+                        <li><a href="services.html" style="color: #ccc;">Services</a></li>
+                    </ul>
+                </div>
+                <div class="ft-col">
+                    <h5 style="color: #fff;">Services</h5>
+                    <ul>
+                        <li><a href="#" style="color: #ccc;">Bridal Flowers</a></li>
+                        <li><a href="#" style="color: #ccc;">Event Styling</a></li>
+                        <li><a href="#" style="color: #ccc;">Subscriptions</a></li>
+                        <li><a href="#" style="color: #ccc;">Masterclasses</a></li>
+                    </ul>
+                </div>
+                <div class="ft-col">
+                    <h5 style="color: #fff;">Get in Touch</h5>
+                    <ul class="ft-contact" style="color: #ccc;">
+                        <li><i class="fas fa-map-marker-alt"></i>12 Floral Court, Chelsea, London</li>
+                        <li><i class="fas fa-phone"></i>+44 20 7946 0958</li>
+                        <li><i class="fas fa-envelope"></i>hello@petalandbloom.co</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft-btm" style="border-color: rgba(255,255,255,0.1); color: #888;">
+                <p>&copy; 2026 Petal &amp; Bloom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

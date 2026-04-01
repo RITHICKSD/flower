@@ -1,0 +1,125 @@
+/* Custom Hamburger Menu - Fresh Start */
+.custom-hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding: 6px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid rgba(201, 160, 80, 0.4);
+    border-radius: 4px;
+    position: relative;
+    z-index: 999999;
+}
+
+/* Adjust header right section to include hamburger */
+.hdr-right {
+    margin-right: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    position: relative !important;
+    top: 0 !important;
+}
+
+/* Ensure header is fixed */
+.header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9998 !important;
+}
+
+.custom-hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--gl);
+    border-radius: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.custom-hamburger.open span:nth-child(1) {
+    transform: rotate(45deg);
+    position: absolute;
+    top: 8px;
+}
+
+.custom-hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.custom-hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 8px;
+}
+
+/* Custom Navigation Menu */
+.custom-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(21, 9, 16, 0.95);
+    z-index: 999998;
+    padding: 20px;
+}
+
+.custom-nav.open {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.custom-nav-item {
+    margin: 10px 0;
+}
+
+.custom-nav-link {
+    color: white;
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.custom-nav-link:hover {
+    background: rgba(201, 160, 80, 0.2);
+    color: var(--gl);
+}
+
+.custom-dropdown {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    padding: 8px;
+    margin-top: 8px;
+}
+
+.custom-dropdown-link {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 8px 16px;
+    text-decoration: none;
+    display: block;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.custom-dropdown-link:hover {
+    background: rgba(201, 160, 80, 0.15);
+    color: var(--gl);
+}
