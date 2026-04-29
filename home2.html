@@ -120,17 +120,9 @@
             background: #d35400;
         }
 
-        .footer {
-            background: #2c3e50;
-            color: #fff;
-            padding: 40px 20px;
-            text-align: center;
-        }
-
-        .footer a {
-            color: #e67e22;
-            text-decoration: none;
-        }
+        body.dark-theme {
+            background: #150910 !important;
+            color: #FAF6F1 !important;
     </style>
 </head>
 
@@ -165,10 +157,14 @@
                         <div class="drop"><a href="user-dashboard.html" class="di">User Dashboard</a><a
                                 href="admin-dashboard.html" class="di">Admin Dashboard</a></div>
                     </li>
+                    <li class="ni ni-login-mobile"><a href="login.html" class="nl-a"><i class="fas fa-user"></i>
+                            Login</a></li>
                 </ul>
             </nav>
             <div class="hdr-right">
                 <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL"><i class="fas fa-globe"></i></button>
+                <button class="btn-theme" id="themeToggle" title="Toggle Light/Dark Mode"><i class="fas fa-moon"></i><i
+                        class="fas fa-sun"></i></button>
                 <a href="login.html" class="btn-login"><i class="fas fa-user"></i><span>Login</span></a>
                 <button class="hamburger" id="hamburger"
                     aria-label="Menu"><span></span><span></span><span></span></button>
@@ -576,69 +572,74 @@
     </main>
 
     <!-- Footer – reuse from index for consistency -->
-    <footer class="footer" id="footer"
-        style="background: var(--h2-text); padding-top: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+    <footer class="footer" id="footer">
         <div class="con">
             <div class="ft-grid">
                 <div class="ft-brand">
                     <a href="index.html" class="logo"><svg class="logo-svg" viewBox="0 0 52 52">
-                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9" />
-                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
                                 transform="rotate(60 26 26)" />
-                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
                                 transform="rotate(120 26 26)" />
-                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
                                 transform="rotate(180 26 26)" />
-                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
                                 transform="rotate(240 26 26)" />
-                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#D4A373" opacity=".9"
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
                                 transform="rotate(300 26 26)" />
                             <circle cx="26" cy="26" r="9" fill="#fff" opacity=".95" />
-                            <circle cx="26" cy="26" r="5" fill="#D4A373" />
+                            <circle cx="26" cy="26" r="5" fill="#C9A050" />
                         </svg>
-                        <div class="logo-txt"><span class="l-name" style="color: #fff;">Petal &amp; Bloom</span><span
-                                class="l-tag" style="color: #ccc;">Luxury Florals</span></div>
+                        <div class="logo-txt"><span class="l-name">Petal &amp; Bloom</span><span
+                                    class="l-tag">Luxury Florals</span></div>
                     </a>
-                    <p class="ft-desc" style="color: #aaa;">Bringing nature's finest blooms to life's most precious
-                        moments since 2008.</p>
-                    <div class="ft-soc">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                    <p class="ft-desc">Bringing nature's finest blooms to life's most precious moments since 2008.
+                        </p>
+                        <div class="ft-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
+                                    class="fab fa-facebook-f"></i></a><a href="#"><i
+                                    class="fab fa-pinterest-p"></i></a><a href="#"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                    </div>
+                    <div class="ft-col">
+                        <h5>Quick Links</h5>
+                        <ul>
+                            <li><a href="index.html">Home 1</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="#gallery">Gallery</a></li>
+                            <li><a href="#loyalty">Petal Club</a></li>
+                        </ul>
+                    </div>
+                    <div class="ft-col">
+                        <h5>Services</h5>
+                        <ul>
+                            <li><a href="#">Bridal Flowers</a></li>
+                            <li><a href="#">Event Styling</a></li>
+                            <li><a href="#">Subscriptions</a></li>
+                            <li><a href="#">Corporate Orders</a></li>
+                            <li><a href="#">Same-Day Delivery</a></li>
+                            <li><a href="#">Gift Cards</a></li>
+                        </ul>
+                    </div>
+                    <div class="ft-col">
+                        <h5>Get in Touch</h5>
+                        <ul class="ft-contact">
+                            <li><i class="fas fa-map-marker-alt"></i>12 Floral Court, Chelsea, London</li>
+                            <li><i class="fas fa-phone"></i>+44 20 7946 0958</li>
+                            <li><i class="fas fa-envelope"></i>hello@petalandbloom.co</li>
+                            <li><i class="fas fa-clock"></i>Mon–Sat: 8am – 7pm</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="ft-col">
-                    <h5 style="color: #fff;">Quick Links</h5>
-                    <ul>
-                        <li><a href="index.html" style="color: #ccc;">Home 1</a></li>
-                        <li><a href="home2.html" style="color: #ccc;">Home 2</a></li>
-                        <li><a href="about.html" style="color: #ccc;">About Us</a></li>
-                        <li><a href="services.html" style="color: #ccc;">Services</a></li>
-                    </ul>
-                </div>
-                <div class="ft-col">
-                    <h5 style="color: #fff;">Services</h5>
-                    <ul>
-                        <li><a href="#" style="color: #ccc;">Bridal Flowers</a></li>
-                        <li><a href="#" style="color: #ccc;">Event Styling</a></li>
-                        <li><a href="#" style="color: #ccc;">Subscriptions</a></li>
-                        <li><a href="#" style="color: #ccc;">Masterclasses</a></li>
-                    </ul>
-                </div>
-                <div class="ft-col">
-                    <h5 style="color: #fff;">Get in Touch</h5>
-                    <ul class="ft-contact" style="color: #ccc;">
-                        <li><i class="fas fa-map-marker-alt"></i>12 Floral Court, Chelsea, London</li>
-                        <li><i class="fas fa-phone"></i>+44 20 7946 0958</li>
-                        <li><i class="fas fa-envelope"></i>hello@petalandbloom.co</li>
-                    </ul>
+                <div class="ft-btm">
+                    <p>&copy; 2024 Petal &amp; Bloom. All rights reserved.</p>
+                    <div class="ft-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+                    <div class="pay-ico"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i
+                            class="fab fa-cc-amex"></i><i class="fab fa-cc-paypal"></i></div>
                 </div>
             </div>
-            <div class="ft-btm" style="border-color: rgba(255,255,255,0.1); color: #888;">
-                <p>&copy; 2026 Petal &amp; Bloom. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
     <!-- Scripts -->
     <script src="js/main.js"></script>

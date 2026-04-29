@@ -23,6 +23,43 @@
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
+        .sidebar-toggles {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: auto;
+        }
+
+        .btn-side-toggle {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: transparent;
+            color: rgba(255, 255, 255, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-side-toggle:hover {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        body.dark-theme .btn-theme .fa-moon {
+            display: none;
+        }
+
+        body:not(.dark-theme) .btn-theme .fa-sun {
+            display: none;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -485,7 +522,6 @@
     <button class="ham" id="hamBtn"><i class="fas fa-bars"></i></button>
 
     <div class="user-meta">
-        <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL"><i class="fas fa-globe"></i></button>
         <div class="user-info">
             <div class="user-name">Vanessa Bloom</div>
             <div class="user-rank">Platinum Member</div>
@@ -529,8 +565,15 @@
             <a href="#" class="nav-link" data-sec="addresses"><i class="fas fa-map-marker-alt"></i> Saved Addresses</a>
         </div>
 
-        <div class="sidebar-footer">
+        <div class="sidebar-footer" style="margin-top: auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 10px;">
             <a href="index.html" class="nav-link btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </div>
+
+        <div class="sidebar-toggles">
+            <button class="btn-side-toggle btn-globe" id="dirToggle" title="Toggle LTR/RTL"><i
+                    class="fas fa-globe"></i></button>
+            <button class="btn-side-toggle btn-theme" id="themeToggle" title="Toggle Light/Dark Mode"><i
+                    class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
         </div>
     </aside>
 
@@ -541,7 +584,6 @@
                 <p id="dashDesc">Welcome back, Vanessa. Here is your floral journey at a glance.</p>
             </div>
             <div class="user-meta-desktop">
-                <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL"><i class="fas fa-globe"></i></button>
                 <div style="text-align:right" class="user-info-desktop">
                     <div style="font-weight:600;">Vanessa Bloom</div>
                     <div style="font-size:0.8rem; color:var(--gold);">Platinum Member</div>
@@ -969,12 +1011,18 @@
                     scales: {
                         y: {
                             beginAtZero: true,
-                            grid: { color: 'rgba(0,0,0,0.04)' },
-                            ticks: { font: { family: 'Jost' } }
+                            grid: { color: document.body.classList.contains('dark-theme') ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)' },
+                            ticks: { 
+                                color: document.body.classList.contains('dark-theme') ? '#FAF6F1' : '#1E2D24',
+                                font: { family: 'Jost' } 
+                            }
                         },
                         x: {
                             grid: { display: false },
-                            ticks: { font: { family: 'Jost' } }
+                            ticks: { 
+                                color: document.body.classList.contains('dark-theme') ? '#FAF6F1' : '#1E2D24',
+                                font: { family: 'Jost' } 
+                            }
                         }
                     }
                 }
@@ -1007,6 +1055,7 @@
                         legend: {
                             position: 'bottom',
                             labels: {
+                                color: document.body.classList.contains('dark-theme') ? '#FAF6F1' : '#1E2D24',
                                 usePointStyle: true,
                                 font: { family: 'Jost', size: 11 }
                             }
@@ -1038,6 +1087,7 @@
                         legend: {
                             position: 'bottom',
                             labels: {
+                                color: document.body.classList.contains('dark-theme') ? '#FAF6F1' : '#1E2D24',
                                 usePointStyle: true,
                                 font: { family: 'Jost', size: 12 }
                             }
@@ -1056,6 +1106,29 @@
                 h.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
             });
         });
+
+        // Theme Toggle
+        (() => {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const currentTheme = localStorage.getItem('theme');
+
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-theme');
+            }
+
+            themeToggle?.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+                localStorage.setItem('theme', theme);
+                
+                // Re-initialize charts for theme contrast
+                if (typeof initOverviewCharts === 'function') initOverviewCharts();
+                if (typeof initOrdersChart === 'function') initOrdersChart();
+                if (typeof initWishlistChart === 'function') initWishlistChart();
+                if (typeof initSubChart === 'function') initSubChart();
+            });
+        })();
 
         // Mobile Ham
         document.getElementById('hamBtn').addEventListener('click', (e) => {

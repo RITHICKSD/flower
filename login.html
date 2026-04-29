@@ -190,6 +190,37 @@
             justify-content: center;
             padding: 60px 60px;
             position: relative;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        .btn-theme-auth {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(201, 160, 80, 0.4);
+            background: #fff;
+            color: var(--forest);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-theme-auth:hover {
+            background: var(--g);
+            color: #fff;
+            border-color: var(--g);
+        }
+
+        body.dark-theme .btn-theme-auth .fa-moon {
+            display: none;
+        }
+
+        body:not(.dark-theme) .btn-theme-auth .fa-sun {
+            display: none;
         }
 
         .top-bar {
@@ -563,15 +594,18 @@
                 left: 16px;
             }
 
-            /* Globe over dark panel on mobile — use light colors */
-            .btn-globe-auth {
-                border-color: rgba(201, 160, 80, 0.8);
+            /* Globe & Theme Toggle over dark panel on mobile — use light colors */
+            .btn-globe-auth,
+            .btn-theme-auth {
+                border-color: rgba(201, 160, 80, 0.9);
                 color: var(--gl);
-                background: rgba(255, 255, 255, 0.1);
-                backdrop-filter: blur(8px);
+                background: rgba(255, 255, 255, 0.15);
+                backdrop-filter: blur(10px);
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             }
 
-            .btn-globe-auth:hover {
+            .btn-globe-auth:hover,
+            .btn-theme-auth:hover {
                 background: var(--g);
                 color: #fff;
                 border-color: var(--g);
@@ -641,6 +675,8 @@
     <div class="panel-right">
         <div class="top-bar">
             <button class="btn-globe-auth" id="dirToggle" title="Toggle LTR / RTL"><i class="fas fa-globe"></i></button>
+            <button class="btn-theme-auth" id="themeToggle" title="Toggle Light/Dark Mode"><i class="fas fa-moon"></i><i
+                    class="fas fa-sun"></i></button>
         </div>
 
         <div class="auth-card">
@@ -701,6 +737,23 @@
             const h = document.documentElement;
             h.setAttribute('dir', h.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl');
         });
+
+        // Theme Toggle
+        (() => {
+            const themeToggle = document.getElementById('themeToggle');
+            const body = document.body;
+            const currentTheme = localStorage.getItem('theme');
+
+            if (currentTheme === 'dark') {
+                body.classList.add('dark-theme');
+            }
+
+            themeToggle?.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+                localStorage.setItem('theme', theme);
+            });
+        })();
 
         // Password visibility toggle
         const togglePwd = document.getElementById('togglePwd');

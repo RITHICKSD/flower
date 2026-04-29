@@ -136,6 +136,22 @@ document.getElementById('dirToggle')?.addEventListener('click', () => {
     const h = document.documentElement, r = h.getAttribute('dir') === 'rtl';
     h.setAttribute('dir', r ? 'ltr' : 'rtl');
 });
+// ── THEME TOGGLE ──
+(() => {
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme === 'dark') {
+        body.classList.add('dark-theme');
+    }
+
+    themeToggle?.addEventListener('click', () => {
+        body.classList.toggle('dark-theme');
+        const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+        localStorage.setItem('theme', theme);
+    });
+})();
 // ── FALLING PETALS CANVAS ──
 (() => {
     const c = document.getElementById('petalCanvas'); if (!c) return;
