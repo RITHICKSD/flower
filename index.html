@@ -227,832 +227,210 @@
         <!-- ═══ S5: STORY ═══ -->
         <section class="sec story-sec" id="story">
             <div class="con">
-                <div class="story-g">
-                    <div class="story-img-w ani-left">
-                        <div class="story-frame"><img src="images/story.png" alt="Our florist"
-                                onerror="this.parentNode.parentNode.classList.add('img-fallback','fb-story')" /></div>
-                        <div class="story-badge"><span class="yr">2008</span><span>Founded</span></div>
-                        <div class="story-award"><i class="fas fa-trophy"></i><span>Best Florist 2023</span></div>
-                    </div>
-                    <div class="story-txt ani-right">
-                        <span class="eye">Our Story</span>
-                        <h2 class="st">Born from a Passion<br>for Nature's Beauty</h2>
+                <div class="story-grid">
+                    <div class="story-txt ani-left">
+                        <span class="eye">Our Heritage</span>
+                        <h2 class="st">A Legacy of Elegance</h2>
+                        <p class="story-p">Founded in the heart of London, Petal & Bloom was born from a singular
+                            vision: to treat flowers not just as decoration, but as a medium for emotion and art.</p>
+                        <p class="story-p">Every stem we select and every bouquet we craft is a testament to our
+                            commitment to quality and sustainable beauty.</p>
                         <div class="gold-bar"></div>
-                        <p>Founded in 2008, Petal &amp; Bloom began as a small atelier with a single dream: to translate
-                            the breathtaking beauty of flowers into arrangements that transcend mere decoration and
-                            become true artworks.</p>
-                        <p style="margin-top:14px">Today we work with the finest flower farms across Europe and South
-                            America, bringing you blooms of exceptional quality — each arrangement lovingly crafted by
-                            our award-winning florists.</p>
-                        <div class="s-stats">
-                            <div class="ss"><span class="snum" data-c="15">0</span><sup>+</sup><em>Years of
-                                    Excellence</em></div>
-                            <div class="ss"><span class="snum" data-c="50">0</span><sup>K+</sup><em>Happy Clients</em>
-                            </div>
-                            <div class="ss"><span class="snum" data-c="30">0</span><sup>+</sup><em>Expert Florists</em>
-                            </div>
+                        <div class="sig-wrap">
+                            <p class="sig">Isabella Thorne</p>
+                            <p class="sig-title">Founder &amp; Creative Director</p>
                         </div>
-                        <a href="about.html" class="btn btn-primary">Discover Our Story</a>
+                    </div>
+                    <div class="story-img-wrap ani-right">
+                        <div class="story-img fb-story"></div>
+                        <div class="story-badge">Est. 2008</div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- ═══ S6: BESTSELLERS ═══ -->
-        <section class="sec bs-sec bg-dark" id="bestsellers">
-            <div class="con">
-                <div class="sh flex-h">
-                    <div><span class="eye light">Most Loved</span>
-                        <h2 class="st light">Best Sellers</h2>
-                    </div>
-                    <div class="sarr"><button class="sarr-btn" id="bsPrev"><i
-                                class="fas fa-arrow-left"></i></button><button class="sarr-btn" id="bsNext"><i
-                                class="fas fa-arrow-right"></i></button></div>
-                </div>
-                <div class="bs-track" id="bsTrack">
-                    <div class="bs-card ani-slide">
-                        <div class="bs-img fb-crimson"></div>
-                        <div class="bs-info">
-                            <h4>Crimson Love</h4>
-                            <p>Red Roses · 50 stems</p><span class="bsp">$145.00</span>
-                        </div>
-                    </div>
-                    <div class="bs-card ani-slide">
-                        <div class="bs-img fb-peony"></div>
-                        <div class="bs-info">
-                            <h4>Peony Blush</h4>
-                            <p>Pink Peonies · 30 stems</p><span class="bsp">$98.00</span>
-                        </div>
-                    </div>
-                    <div class="bs-card ani-slide">
-                        <div class="bs-img fb-lily"></div>
-                        <div class="bs-info">
-                            <h4>Lily White</h4>
-                            <p>White Lilies · 20 stems</p><span class="bsp">$72.00</span>
-                        </div>
-                    </div>
-                    <div class="bs-card ani-slide">
-                        <div class="bs-img fb-lav"></div>
-                        <div class="bs-info">
-                            <h4>Lavender Fields</h4>
-                            <p>Lavender · 40 stems</p><span class="bsp">$55.00</span>
-                        </div>
-                    </div>
-                    <div class="bs-card ani-slide">
-                        <div class="bs-img fb-mix"></div>
-                        <div class="bs-info">
-                            <h4>Garden Whimsy</h4>
-                            <p>Mixed garden flowers</p><span class="bsp">$85.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S7: SEASONAL ═══ -->
-        <section class="sec seasonal bg-cream" id="seasonal">
-            <div class="con">
-                <div class="sh center"><span class="eye">All Year Round</span>
-                    <h2 class="st">Seasonal Bouquets</h2>
-                    <div class="orn">❦</div>
-                </div>
-                <div class="stabs">
-                    <button class="stab active" data-tab="spring">🌸 Spring</button>
-                    <button class="stab" data-tab="summer">☀️ Summer</button>
-                    <button class="stab" data-tab="autumn">🍂 Autumn</button>
-                    <button class="stab" data-tab="winter">❄️ Winter</button>
-                </div>
-                <div class="spanel active" id="tab-spring">
-                    <div class="sgrid">
-                        <div class="scard">
-                            <div class="sc-img fb-cherry"></div>
-                            <h4>Cherry Blossom</h4>
-                            <p>$79.00</p>
-                        </div>
-                        <div class="scard">
-                            <div class="sc-img fb-tulip"></div>
-                            <h4>Spring Tulips</h4>
-                            <p>$65.00</p>
-                        </div>
-                        <div class="scard">
-                            <div class="sc-img fb-pastel"></div>
-                            <h4>Pastel Meadow</h4>
-                            <p>$88.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="spanel" id="tab-summer">
-                    <div class="sgrid">
-                        <div class="scard">
-                            <div class="sc-img fb-sun"></div>
-                            <h4>Sunflower Joy</h4>
-                            <p>$60.00</p>
-                        </div>
-                        <div class="scard">
-                            <div class="sc-img fb-orchid"></div>
-                            <h4>Tropical Orchid</h4>
-                            <p>$110.00</p>
-                        </div>
-                        <div class="scard">
-                            <div class="sc-img fb-rose"></div>
-                            <h4>Rose Garden</h4>
-                            <p>$95.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="spanel" id="tab-autumn">
-                    <div class="sgrid">
-                        <div class="scard">
-                            <div class="sc-img fb-peony"></div>
-                            <h4>Harvest Peony</h4>
-                            <p>$92.00</p>
-                        </div>
-                        <div class="scard">
-                            <div class="sc-img fb-lily"></div>
-                            <h4>Amber Lily</h4>
-                            <p>$78.00</p>
-                        </div>
-                        <div class="scard">
-                            <div class="sc-img fb-mix"></div>
-                            <h4>Rustic Charm</h4>
-                            <p>$82.00</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="spanel" id="tab-winter">
-                    <div class="sgrid">
-                        <div class="scard">
-                            <div class="sc-img fb-crimson"></div>
-                            <h4>Winter Rose</h4>
-                            <p>$105.00</p>
-                        </div>
-                        <div class="scard">
-                            <div class="sc-img fb-lav"></div>
-                            <h4>Frosted Lavender</h4>
-                            <p>$70.00</p>
-                        </div>
-                        <div class="scard">
-                            <div class="sc-img fb-wild-s"></div>
-                            <h4>Snowdrop Dreams</h4>
-                            <p>$88.00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S8: OCCASIONS ═══ -->
-        <section class="sec occasions" id="occasions">
-            <div class="con">
-                <div class="sh center"><span class="eye">Every Moment Matters</span>
-                    <h2 class="st">Shop by Occasion</h2>
-                    <div class="orn">❦</div>
-                </div>
-                <div class="occ-grid">
-                    <a href="#" class="occ-card ani-pop d0">
-                        <div class="occ-icon">💍</div>
-                        <h4>Wedding</h4>
-                    </a>
-                    <a href="#" class="occ-card ani-pop d1">
-                        <div class="occ-icon">🎂</div>
-                        <h4>Birthday</h4>
-                    </a>
-                    <a href="#" class="occ-card ani-pop d2">
-                        <div class="occ-icon">💑</div>
-                        <h4>Anniversary</h4>
-                    </a>
-                    <a href="#" class="occ-card ani-pop d3">
-                        <div class="occ-icon">❤️</div>
-                        <h4>Romance</h4>
-                    </a>
-                    <a href="#" class="occ-card ani-pop d0">
-                        <div class="occ-icon">🕊️</div>
-                        <h4>Sympathy</h4>
-                    </a>
-                    <a href="#" class="occ-card ani-pop d1">
-                        <div class="occ-icon">🎉</div>
-                        <h4>Celebration</h4>
-                    </a>
-                    <a href="#" class="occ-card ani-pop d2">
-                        <div class="occ-icon">🌿</div>
-                        <h4>Get Well</h4>
-                    </a>
-                    <a href="#" class="occ-card ani-pop d3">
-                        <div class="occ-icon">🙏</div>
-                        <h4>Thank You</h4>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S9: GIFT SETS ═══ -->
-        <section class="sec gift-sec bg-cream" id="giftsets">
-            <div class="con">
-                <div class="sh center"><span class="eye">Curated with Care</span>
-                    <h2 class="st">Luxury Gift Sets</h2>
-                    <div class="orn">❦</div>
-                </div>
-                <div class="gift-grid">
-                    <div class="gift-card ani-flip d0">
-                        <div class="gc-img fb-bridal"></div>
-                        <div class="gc-info"><span class="gc-badge">Premium</span>
-                            <h3>Bridal Bliss Set</h3>
-                            <p>Roses, Peonies &amp; Champagne</p>
-                            <div class="gc-price">$250.00</div><a href="#" class="btn btn-sm btn-gold">Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="gift-card ani-flip d1">
-                        <div class="gc-img fb-classic"></div>
-                        <div class="gc-info"><span class="gc-badge">Classic</span>
-                            <h3>Garden Tea Set</h3>
-                            <p>Seasonal flowers &amp; herbal tea</p>
-                            <div class="gc-price">$145.00</div><a href="#" class="btn btn-sm btn-gold">Shop Now</a>
-                        </div>
-                    </div>
-                    <div class="gift-card ani-flip d2">
-                        <div class="gc-img fb-wild"></div>
-                        <div class="gc-info"><span class="gc-badge">Signature</span>
-                            <h3>Wild Romance Set</h3>
-                            <p>Wild flowers &amp; artisan chocolates</p>
-                            <div class="gc-price">$185.00</div><a href="#" class="btn btn-sm btn-gold">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S10: HOW IT WORKS ═══ -->
-        <section class="sec hiw" id="howitworks">
-            <div class="con">
-                <div class="sh center"><span class="eye">Simple &amp; Seamless</span>
-                    <h2 class="st">How It Works</h2>
-                    <div class="orn">❦</div>
-                </div>
-                <div class="steps">
-                    <div class="step ani-bounce d0">
-                        <div class="sn">01</div>
-                        <div class="si"><i class="fas fa-search"></i></div>
-                        <h4>Choose Your Blooms</h4>
-                        <p>Browse our curated collections and find the perfect arrangement for any moment.</p>
-                    </div>
-                    <div class="step-line"></div>
-                    <div class="step ani-bounce d1">
-                        <div class="sn">02</div>
-                        <div class="si"><i class="fas fa-palette"></i></div>
-                        <h4>Personalise It</h4>
-                        <p>Add a message card, choose wrapping style, and select a delivery date.</p>
-                    </div>
-                    <div class="step-line"></div>
-                    <div class="step ani-bounce d2">
-                        <div class="sn">03</div>
-                        <div class="si"><i class="fas fa-truck-fast"></i></div>
-                        <h4>We Deliver</h4>
-                        <p>Our florists hand-craft your order and couriers deliver it fresh to the door.</p>
-                    </div>
-                    <div class="step-line"></div>
-                    <div class="step ani-bounce d3">
-                        <div class="sn">04</div>
-                        <div class="si"><i class="fas fa-heart"></i></div>
-                        <h4>Pure Delight</h4>
-                        <p>Every bouquet comes with our freshness guarantee and a care guide.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S11: STATS ═══ -->
-        <section class="sec stats-sec" id="stats">
-            <div class="stats-bg fb-stats"></div>
-            <div class="stats-ov"></div>
-            <div class="con stats-body">
-                <div class="stat-box ani-glow d0"><span class="cnt" data-t="25000">0</span><sup>+</sup>
-                    <p>Happy Customers</p>
-                </div>
-                <div class="stat-box ani-glow d1"><span class="cnt" data-t="80000">0</span><sup>+</sup>
-                    <p>Flowers Delivered</p>
-                </div>
-                <div class="stat-box ani-glow d2"><span class="cnt" data-t="15">0</span><sup>+</sup>
-                    <p>Years of Expertise</p>
-                </div>
-                <div class="stat-box ani-glow d3"><span class="cnt" data-t="100">0</span><sup>%</sup>
-                    <p>Freshness Guarantee</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S12: PLANS ═══ -->
-        <section class="sec plans-sec bg-cream" id="subscriptions">
-            <div class="con">
-                <div class="sh center"><span class="eye">Never Miss a Bloom</span>
-                    <h2 class="st">Subscribe &amp; Save</h2>
-                    <div class="orn">❦</div>
-                </div>
-                <div class="plans">
-                    <div class="plan ani-rise-r d0">
-                        <div class="plan-h"><span class="pname">Petal</span>
-                            <div class="pprice">$49<span>/mo</span></div>
-                        </div>
-                        <ul class="pf">
-                            <li><i class="fas fa-check"></i>1 bouquet monthly</li>
-                            <li><i class="fas fa-check"></i>Seasonal selection</li>
-                            <li><i class="fas fa-check"></i>Free delivery</li>
-                            <li><i class="fas fa-times g"></i>Custom styling</li>
-                            <li><i class="fas fa-times g"></i>Priority support</li>
-                        </ul>
-                        <a href="#" class="btn btn-outline plb">Get Started</a>
-                    </div>
-                    <div class="plan featured ani-rise-r d1">
-                        <div class="plan-badge">Most Popular</div>
-                        <div class="plan-h"><span class="pname">Bloom</span>
-                            <div class="pprice">$89<span>/mo</span></div>
-                        </div>
-                        <ul class="pf">
-                            <li><i class="fas fa-check"></i>2 bouquets monthly</li>
-                            <li><i class="fas fa-check"></i>Seasonal + premium</li>
-                            <li><i class="fas fa-check"></i>Free delivery</li>
-                            <li><i class="fas fa-check"></i>Custom styling</li>
-                            <li><i class="fas fa-times g"></i>Priority support</li>
-                        </ul>
-                        <a href="#" class="btn btn-gold plb">Get Started</a>
-                    </div>
-                    <div class="plan ani-rise-r d2">
-                        <div class="plan-h"><span class="pname">Luxury</span>
-                            <div class="pprice">$149<span>/mo</span></div>
-                        </div>
-                        <ul class="pf">
-                            <li><i class="fas fa-check"></i>4 bouquets monthly</li>
-                            <li><i class="fas fa-check"></i>Exclusive collection</li>
-                            <li><i class="fas fa-check"></i>Free express delivery</li>
-                            <li><i class="fas fa-check"></i>Custom styling</li>
-                            <li><i class="fas fa-check"></i>Priority support</li>
-                        </ul>
-                        <a href="#" class="btn btn-outline plb">Get Started</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S13: TEAM ═══ -->
-        <section class="sec team-sec" id="team">
-            <div class="con">
-                <div class="sh center"><span class="eye">The Artists Behind the Blooms</span>
-                    <h2 class="st">Meet Our Florists</h2>
-                    <div class="orn">❦</div>
-                </div>
-                <div class="team-grid">
-                    <div class="team-card ani-tilt d0">
-                        <div class="tm-img fb-t1"></div>
-                        <div class="tm-info">
-                            <h4>Sophia Laurent</h4>
-                            <p>Head Florist &amp; Founder</p>
-                            <div class="tm-s"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
-                                        class="fab fa-pinterest"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="team-card ani-tilt d1">
-                        <div class="tm-img fb-t2"></div>
-                        <div class="tm-info">
-                            <h4>Isabelle Chen</h4>
-                            <p>Bridal Specialist</p>
-                            <div class="tm-s"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
-                                        class="fab fa-pinterest"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="team-card ani-tilt d2">
-                        <div class="tm-img fb-t3"></div>
-                        <div class="tm-info">
-                            <h4>Mia Russo</h4>
-                            <p>Event Designer</p>
-                            <div class="tm-s"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
-                                        class="fab fa-pinterest"></i></a></div>
-                        </div>
-                    </div>
-                    <div class="team-card ani-tilt d3">
-                        <div class="tm-img fb-t4"></div>
-                        <div class="tm-info">
-                            <h4>Elena Park</h4>
-                            <p>Creative Director</p>
-                            <div class="tm-s"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
-                                        class="fab fa-pinterest"></i></a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S14: TESTIMONIALS ═══ -->
-        <section class="sec testi-sec bg-dark" id="testimonials">
-            <div class="con">
-                <div class="sh center"><span class="eye light">Love Notes</span>
-                    <h2 class="st light">What Our Clients Say</h2>
-                </div>
-                <div class="tslider" id="tSlider">
-                    <div class="tc active">
-                        <div class="tc-stars">★★★★★</div>
-                        <blockquote>"The bridal arrangement exceeded every expectation. Sophia understood our vision
-                            perfectly — the flowers were breathtaking and still beautiful after ten days."</blockquote>
-                        <div class="tc-auth">
-                            <div class="tc-av fb-av1"></div>
-                            <div><strong>Emma Whitfield</strong><span>Bride, London</span></div>
-                        </div>
-                    </div>
-                    <div class="tc">
-                        <div class="tc-stars">★★★★★</div>
-                        <blockquote>"I've subscribed to the Bloom plan for 8 months and every delivery feels like a
-                            gift. The quality and creativity never disappoint. Truly luxury floristry."</blockquote>
-                        <div class="tc-auth">
-                            <div class="tc-av fb-av2"></div>
-                            <div><strong>James Rivers</strong><span>Subscriber, Paris</span></div>
-                        </div>
-                    </div>
-                    <div class="tc">
-                        <div class="tc-stars">★★★★★</div>
-                        <blockquote>"Sent a sympathy arrangement to a friend. The care and thought that went into it was
-                            obvious. Your florists are true artists. Will absolutely return."</blockquote>
-                        <div class="tc-auth">
-                            <div class="tc-av fb-av3"></div>
-                            <div><strong>Nadia Okafor</strong><span>Client, New York</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tdots" id="tDots"><span class="td active" data-i="0"></span><span class="td"
-                        data-i="1"></span><span class="td" data-i="2"></span></div>
-            </div>
-        </section>
-
-        <!-- ═══ S15: GALLERY ═══ -->
-        <section class="sec gallery-sec" id="gallery">
-            <div class="con">
-                <div class="sh center"><span class="eye">Our Portfolio</span>
-                    <h2 class="st">Floral Gallery</h2>
-                    <div class="orn">❦</div>
-                </div>
-                <div class="g-grid">
-                    <div class="gi tall ani-zoom d0">
-                        <div class="gi-img fb-bridal"></div>
-                        <div class="gi-ov"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="gi ani-zoom d1">
-                        <div class="gi-img fb-classic"></div>
-                        <div class="gi-ov"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="gi ani-zoom d2">
-                        <div class="gi-img fb-rose"></div>
-                        <div class="gi-ov"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="gi wide ani-zoom d0">
-                        <div class="gi-img fb-wild"></div>
-                        <div class="gi-ov"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="gi ani-zoom d1">
-                        <div class="gi-img fb-sun"></div>
-                        <div class="gi-ov"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="gi tall ani-zoom d2">
-                        <div class="gi-img fb-orchid"></div>
-                        <div class="gi-ov"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="gi ani-zoom d0">
-                        <div class="gi-img fb-peony"></div>
-                        <div class="gi-ov"><i class="fas fa-expand"></i></div>
-                    </div>
-                    <div class="gi ani-zoom d1">
-                        <div class="gi-img fb-lav"></div>
-                        <div class="gi-ov"><i class="fas fa-expand"></i></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S16: AWARDS ═══ -->
-        <section class="sec awards-sec bg-cream" id="awards">
+        <section class="sec bestsellers bg-dark" id="bestsellers">
             <div class="con">
                 <div class="sh center">
-                    <h2 class="st">Awards &amp; Recognition</h2>
-                </div>
-                <div class="awards-row">
-                    <div class="aw-item ani-spin d0"><i class="fas fa-trophy"></i>
-                        <h5>Best Florist 2023</h5>
-                        <p>London Floral Awards</p>
-                    </div>
-                    <div class="aw-item ani-spin d1"><i class="fas fa-medal"></i>
-                        <h5>Luxury Brand of the Year</h5>
-                        <p>Prestige Business Awards</p>
-                    </div>
-                    <div class="aw-item ani-spin d2"><i class="fas fa-star"></i>
-                        <h5>5-Star Excellence</h5>
-                        <p>Wedding Industry Awards</p>
-                    </div>
-                    <div class="aw-item ani-spin d3"><i class="fas fa-leaf"></i>
-                        <h5>Sustainable Florist</h5>
-                        <p>Green Business Awards</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S17: FARM TO VASE ═══ -->
-        <section class="sec ftv-sec" id="farmtovase">
-            <div class="con">
-                <div class="sh center"><span class="eye">From Source to You</span>
-                    <h2 class="st">Seed to Stem Journey</h2>
+                    <span class="eye light">Most Loved</span>
+                    <h2 class="st light">Our Bestsellers</h2>
                     <div class="orn">❦</div>
                 </div>
-                <div class="ftv-grid">
-                    <div class="ftv-item ani-left d0">
-                        <div class="ftv-icon"><i class="fas fa-seedling"></i></div>
-                        <h4>Ethical Sourcing</h4>
-                        <p>Rainforest Alliance certified farms across Colombia, Kenya &amp; the Netherlands.</p>
+                <div class="prod-grid">
+                    <div class="prod-card ani-up d0">
+                        <div class="prod-img fb-peony"><span class="badge-best">Bestseller</span></div>
+                        <div class="pi">
+                            <p class="pcat">Peonies</p>
+                            <h4 class="pname">Velvet Peony</h4>
+                            <div class="stars">★★★★★ <span>(120)</span></div>
+                            <div class="pp"><span class="pc">$95.00</span></div><button
+                                class="btn btn-sm btn-gold w100">Add to Bag</button>
+                        </div>
                     </div>
-                    <div class="ftv-item ani-up d1">
-                        <div class="ftv-icon"><i class="fas fa-plane"></i></div>
-                        <h4>Swift Transport</h4>
-                        <p>Blooms air-shipped within 24 hours of harvest to maintain peak freshness.</p>
+                    <div class="prod-card ani-up d1">
+                        <div class="prod-img fb-lily"><span class="badge-best">Bestseller</span></div>
+                        <div class="pi">
+                            <p class="pcat">Lilies</p>
+                            <h4 class="pname">White Majesty</h4>
+                            <div class="stars">★★★★★ <span>(98)</span></div>
+                            <div class="pp"><span class="pc">$79.00</span></div><button
+                                class="btn btn-sm btn-gold w100">Add to Bag</button>
+                        </div>
                     </div>
-                    <div class="ftv-item ani-up d2">
-                        <div class="ftv-icon"><i class="fas fa-scissors"></i></div>
-                        <h4>Expert Curation</h4>
-                        <p>Our florists select only the finest stems, conditioning them in our cool rooms.</p>
+                    <div class="prod-card ani-up d2">
+                        <div class="prod-img fb-lav"><span class="badge-best">Bestseller</span></div>
+                        <div class="pi">
+                            <p class="pcat">Lavender</p>
+                            <h4 class="pname">Provencal Blue</h4>
+                            <div class="stars">★★★★½ <span>(76)</span></div>
+                            <div class="pp"><span class="pc">$85.00</span></div><button
+                                class="btn btn-sm btn-gold w100">Add to Bag</button>
+                        </div>
                     </div>
-                    <div class="ftv-item ani-right d3">
-                        <div class="ftv-icon"><i class="fas fa-box-open"></i></div>
-                        <h4>Luxury Packaging</h4>
-                        <p>Hand-wrapped in signature tissue and placed in our eco-friendly gift boxes.</p>
+                    <div class="prod-card ani-up d3">
+                        <div class="prod-img fb-mix"><span class="badge-best">Bestseller</span></div>
+                        <div class="pi">
+                            <p class="pcat">Mixed</p>
+                            <h4 class="pname">Midnight Garden</h4>
+                            <div class="stars">★★★★★ <span>(145)</span></div>
+                            <div class="pp"><span class="pc">$130.00</span></div><button
+                                class="btn btn-sm btn-gold w100">Add to Bag</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- ═══ S18: DELIVERY CTA ═══ -->
-        <section class="sec del-sec" id="delivery">
-            <div class="del-bg fb-del"></div>
-            <div class="del-ov"></div>
-            <div class="con del-body ani-zoom">
-                <h2 class="st light">Same-Day Delivery<br><em>Available Now</em></h2>
-                <p class="del-p">Order before 1 PM and we'll deliver your blooms the same day, fresh from our studio to
-                    their door.</p>
-                <a href="#" class="btn btn-gold btn-lg">Order Now</a>
-            </div>
-        </section>
-
-        <!-- ═══ S19: CARE TIPS ═══ -->
-        <section class="sec care-sec bg-cream" id="caretips">
+        <!-- ═══ S7: TESTIMONIALS ═══ -->
+        <section class="sec testimonials" id="testimonials">
             <div class="con">
-                <div class="sh center"><span class="eye">Keep Them Blooming</span>
-                    <h2 class="st">Flower Care Guide</h2>
+                <div class="sh center">
+                    <span class="eye">Kind Words</span>
+                    <h2 class="st">Our Client Stories</h2>
                     <div class="orn">❦</div>
                 </div>
-                <div class="acc" id="acc">
-                    <div class="ai ani-left d0"><button class="at">🌊 Keep Stems in Fresh Water <i
-                                class="fas fa-plus ai-icon"></i></button>
-                        <div class="ap">
-                            <p>Change the water every two days and add our included flower food sachet. Keep the vase
-                                clean to prevent bacterial growth.</p>
+                <div class="tm-grid">
+                    <div class="tm-card ani-up d0">
+                        <div class="tm-info">
+                            <div class="tm-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="tm-txt">"The most exquisite flowers I have ever seen. The attention to detail in
+                                the packaging alone is world-class. A truly luxury experience from start to finish."</p>
                         </div>
-                    </div>
-                    <div class="ai ani-left d1"><button class="at">✂️ Trim Stems at an Angle <i
-                                class="fas fa-plus ai-icon"></i></button>
-                        <div class="ap">
-                            <p>Cut 2–3 cm at a 45° angle before placing in water. This increases the surface area for
-                                water absorption significantly.</p>
-                        </div>
-                    </div>
-                    <div class="ai ani-left d2"><button class="at">🌡️ Avoid Heat &amp; Direct Sunlight <i
-                                class="fas fa-plus ai-icon"></i></button>
-                        <div class="ap">
-                            <p>Place your arrangement away from radiators and direct sun. Cool temperatures
-                                significantly extend the life of your blooms.</p>
-                        </div>
-                    </div>
-                    <div class="ai ani-left d3"><button class="at">🍎 Keep Away from Fruit <i
-                                class="fas fa-plus ai-icon"></i></button>
-                        <div class="ap">
-                            <p>Ripening fruits release ethylene gas which accelerates wilting. Keep flowers in a
-                                separate room from your fruit bowl.</p>
-                        </div>
-                    </div>
-                    <div class="ai ani-left d0"><button class="at">🌬️ Avoid Cold Drafts <i
-                                class="fas fa-plus ai-icon"></i></button>
-                        <div class="ap">
-                            <p>While flowers prefer cool air, direct drafts from air conditioning can damage delicate
-                                petals. Find a stable, moderate spot.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S20: GIFT CARDS ═══ -->
-        <section class="sec gcard-sec" id="giftcards">
-            <div class="con">
-                <div class="sh center"><span class="eye">The Perfect Gift</span>
-                    <h2 class="st">Gift Cards</h2>
-                    <div class="orn">❦</div>
-                </div>
-                <div class="gcard-wrap">
-                    <div class="gcard ani-left">
-                        <div class="gcard-visual">
-                            <div class="gc-deco"></div>
-                            <span class="gc-brand">Petal &amp; Bloom</span>
-                            <span class="gc-amt" id="gcAmt">$100</span>
-                            <span class="gc-lbl">Luxury Floral Gift Card</span>
-                        </div>
-                    </div>
-                    <div class="gcard-opts ani-right">
-                        <h3>Send the Gift of Flowers</h3>
-                        <p>Give someone the freedom to choose their perfect blooms. Gift cards never expire and can be
-                            used online or in-store.</p>
-                        <div class="gc-btns">
-                            <button class="gcb active" data-v="$50">$50</button>
-                            <button class="gcb" data-v="$100">$100</button>
-                            <button class="gcb" data-v="$150">$150</button>
-                            <button class="gcb" data-v="$200">$200</button>
-                            <button class="gcb" data-v="Custom">Custom</button>
-                        </div>
-                        <a href="#" class="btn btn-primary" style="margin-top:24px">Buy Gift Card</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S21: LOYALTY ═══ -->
-        <section class="sec loyalty-sec bg-dark" id="loyalty">
-            <div class="con">
-                <div class="loyalty-g">
-                    <div class="loyalty-txt ani-left">
-                        <span class="eye light">Rewards Program</span>
-                        <h2 class="st light">The Petal Club</h2>
-                        <p class="ly-desc">Earn Petal Points on every purchase, redeemable for free bouquets, exclusive
-                            events, and early access to new collections.</p>
-                        <div class="ly-tiers">
-                            <div class="lt">
-                                <div class="lt-i" style="color:#C0C0C0"><i class="fas fa-leaf"></i></div>
-                                <h5>Sprout</h5>
-                                <p>0–500 pts</p>
-                            </div>
-                            <div class="lt">
-                                <div class="lt-i" style="color:#C9A050"><i class="fas fa-seedling"></i></div>
-                                <h5>Bloom</h5>
-                                <p>501–2000 pts</p>
-                            </div>
-                            <div class="lt">
-                                <div class="lt-i" style="color:#E8D5A3"><i class="fas fa-crown"></i></div>
-                                <h5>Luxury</h5>
-                                <p>2001+ pts</p>
+                        <div class="tm-user">
+                            <div class="tm-av fb-av1"></div>
+                            <div class="tm-uinfo">
+                                <h4 class="tm-name">Sophia Loren</h4>
+                                <p class="tm-loc">London, UK</p>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-gold">Join Free Today</a>
                     </div>
-                    <div class="loyalty-img ani-right">
-                        <div class="ly-img-wrap fb-peony"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S22: PRESS ═══ -->
-        <section class="sec press-sec bg-cream" id="press">
-            <div class="con">
-                <div class="sh center"><span class="eye">As Featured In</span>
-                    <h2 class="st">Press &amp; Media</h2>
-                </div>
-                <div class="press-row">
-                    <div class="pl ani-fade"><span>VOGUE</span></div>
-                    <div class="pl ani-fade"><span>Elle Décor</span></div>
-                    <div class="pl ani-fade"><span>Harper's Bazaar</span></div>
-                    <div class="pl ani-fade"><span>TATLER</span></div>
-                    <div class="pl ani-fade"><span>The Times</span></div>
-                    <div class="pl ani-fade"><span>Brides</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S23: SOCIAL ═══ -->
-        <section class="sec social-sec" id="social">
-            <div class="con">
-                <div class="sh center"><span class="eye">@petalandbloom</span>
-                    <h2 class="st">Follow Our Journey</h2>
-                    <div class="orn">❦</div>
-                </div>
-                <div class="ig-grid">
-                    <a href="#" class="igi ani-zoom d0">
-                        <div class="igi-img fb-bridal"></div>
-                        <div class="igi-ov"><i class="fab fa-instagram"></i></div>
-                    </a>
-                    <a href="#" class="igi ani-zoom d1">
-                        <div class="igi-img fb-sun"></div>
-                        <div class="igi-ov"><i class="fab fa-instagram"></i></div>
-                    </a>
-                    <a href="#" class="igi ani-zoom d2">
-                        <div class="igi-img fb-classic"></div>
-                        <div class="igi-ov"><i class="fab fa-instagram"></i></div>
-                    </a>
-                    <a href="#" class="igi ani-zoom d3">
-                        <div class="igi-img fb-wild"></div>
-                        <div class="igi-ov"><i class="fab fa-instagram"></i></div>
-                    </a>
-                    <a href="#" class="igi ani-zoom d0">
-                        <div class="igi-img fb-orchid"></div>
-                        <div class="igi-ov"><i class="fab fa-instagram"></i></div>
-                    </a>
-                    <a href="#" class="igi ani-zoom d1">
-                        <div class="igi-img fb-peony"></div>
-                        <div class="igi-ov"><i class="fab fa-instagram"></i></div>
-                    </a>
-                </div>
-                <div class="center mt40"><a href="#" class="btn btn-outline"><i class="fab fa-instagram"></i>&nbsp;
-                        Follow on Instagram</a></div>
-            </div>
-        </section>
-
-        <!-- ═══ S24: NEWSLETTER ═══ -->
-        <section class="sec nl-sec" id="newsletter">
-            <div class="nl-bg"></div>
-            <div class="con nl-body">
-                <div class="nl-box ani-zoom">
-                    <span class="eye light">Stay Inspired</span>
-                    <h2 class="st light">Join Our World of Flowers</h2>
-                    <p class="nl-p">Subscribe for floral inspiration, seasonal offers, early access, and <strong>10%
-                            off</strong> your first order.</p>
-                    <form class="nl-form" id="nlForm">
-                        <input type="email" class="nl-in" placeholder="Your email address" required />
-                        <button type="submit" class="btn btn-gold">Subscribe</button>
-                    </form>
-                    <p class="nl-note">No spam, ever. Unsubscribe anytime.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ═══ S25: FOOTER ═══ -->
-        <footer class="footer" id="footer">
-            <div class="con">
-                <div class="ft-grid">
-                    <div class="ft-brand">
-                        <a href="index.html" class="logo"><svg class="logo-svg" viewBox="0 0 52 52">
-                                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" />
-                                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
-                                    transform="rotate(60 26 26)" />
-                                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
-                                    transform="rotate(120 26 26)" />
-                                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
-                                    transform="rotate(180 26 26)" />
-                                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
-                                    transform="rotate(240 26 26)" />
-                                <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
-                                    transform="rotate(300 26 26)" />
-                                <circle cx="26" cy="26" r="9" fill="#fff" opacity=".95" />
-                                <circle cx="26" cy="26" r="5" fill="#C9A050" />
-                            </svg>
-                            <div class="logo-txt"><span class="l-name">Petal &amp; Bloom</span><span
-                                    class="l-tag">Luxury Florals</span></div>
-                        </a>
-                        <p class="ft-desc">Bringing nature's finest blooms to life's most precious moments since 2008.
-                        </p>
-                        <div class="ft-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
-                                    class="fab fa-facebook-f"></i></a><a href="#"><i
-                                    class="fab fa-pinterest-p"></i></a><a href="#"><i class="fab fa-tiktok"></i></a>
+                    <div class="tm-card ani-up d1">
+                        <div class="tm-info">
+                            <div class="tm-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="tm-txt">"Petal & Bloom handled our corporate gala flawlessly. The floral
+                                installations were the talk of the evening. Professional and incredibly creative team."
+                            </p>
+                        </div>
+                        <div class="tm-user">
+                            <div class="tm-av fb-av2"></div>
+                            <div class="tm-uinfo">
+                                <h4 class="tm-name">James Sterling</h4>
+                                <p class="tm-loc">New York, USA</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="ft-col">
-                        <h5>Quick Links</h5>
-                        <ul>
-                            <li><a href="index.html">Home 1</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="#gallery">Gallery</a></li>
-                            <li><a href="#loyalty">Petal Club</a></li>
-                        </ul>
+                    <div class="tm-card ani-up d2">
+                        <div class="tm-info">
+                            <div class="tm-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                    class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                            <p class="tm-txt">"Their subscription service is a game-changer. Fresh, fragrant blooms
+                                delivered like clockwork every Monday. My home has never felt more alive."</p>
+                        </div>
+                        <div class="tm-user">
+                            <div class="tm-av fb-av3"></div>
+                            <div class="tm-uinfo">
+                                <h4 class="tm-name">Elena Rossi</h4>
+                                <p class="tm-loc">Milan, Italy</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="ft-col">
-                        <h5>Services</h5>
-                        <ul>
-                            <li><a href="#">Bridal Flowers</a></li>
-                            <li><a href="#">Event Styling</a></li>
-                            <li><a href="#">Subscriptions</a></li>
-                            <li><a href="#">Corporate Orders</a></li>
-                            <li><a href="#">Same-Day Delivery</a></li>
-                            <li><a href="#">Gift Cards</a></li>
-                        </ul>
-                    </div>
-                    <div class="ft-col">
-                        <h5>Get in Touch</h5>
-                        <ul class="ft-contact">
-                            <li><i class="fas fa-map-marker-alt"></i>12 Floral Court, Chelsea, London</li>
-                            <li><i class="fas fa-phone"></i>+44 20 7946 0958</li>
-                            <li><i class="fas fa-envelope"></i>hello@petalandbloom.co</li>
-                            <li><i class="fas fa-clock"></i>Mon–Sat: 8am – 7pm</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="ft-btm">
-                    <p>&copy; 2024 Petal &amp; Bloom. All rights reserved.</p>
-                    <div class="ft-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
-                    <div class="pay-ico"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i
-                            class="fab fa-cc-amex"></i><i class="fab fa-cc-paypal"></i></div>
                 </div>
             </div>
-        </footer>
+        </section>
+
     </main>
+
+    <!-- FOOTER -->
+    <footer class="footer" id="footer">
+        <div class="con">
+            <div class="ft-grid">
+                <div class="ft-brand">
+                    <a href="index.html" class="logo"><svg class="logo-svg" viewBox="0 0 52 52">
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
+                                transform="rotate(60 26 26)" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
+                                transform="rotate(120 26 26)" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
+                                transform="rotate(180 26 26)" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
+                                transform="rotate(240 26 26)" />
+                            <ellipse cx="26" cy="13" rx="6" ry="12" fill="#C9A050" opacity=".9"
+                                transform="rotate(300 26 26)" />
+                            <circle cx="26" cy="26" r="9" fill="#fff" opacity=".95" />
+                            <circle cx="26" cy="26" r="5" fill="#C9A050" />
+                        </svg>
+                        <div class="logo-txt"><span class="l-name">Petal &amp; Bloom</span><span
+                                class="l-tag">Luxury Florals</span></div>
+                    </a>
+                    <p class="ft-desc">Bringing nature's finest blooms to life's most precious moments since 2008.
+                    </p>
+                    <div class="ft-soc"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i
+                                class="fab fa-facebook-f"></i></a><a href="#"><i
+                                class="fab fa-pinterest-p"></i></a><a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="ft-col">
+                    <h5>Quick Links</h5>
+                    <ul>
+                        <li><a href="index.html">Home 1</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#loyalty">Petal Club</a></li>
+                    </ul>
+                </div>
+                <div class="ft-col">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="#">Bridal Flowers</a></li>
+                        <li><a href="#">Event Styling</a></li>
+                        <li><a href="#">Subscriptions</a></li>
+                        <li><a href="#">Corporate Orders</a></li>
+                        <li><a href="#">Same-Day Delivery</a></li>
+                        <li><a href="#">Gift Cards</a></li>
+                    </ul>
+                </div>
+                <div class="ft-col">
+                    <h5>Get in Touch</h5>
+                    <ul class="ft-contact">
+                        <li><i class="fas fa-map-marker-alt"></i>12 Floral Court, Chelsea, London</li>
+                        <li><i class="fas fa-phone"></i>+44 20 7946 0958</li>
+                        <li><i class="fas fa-envelope"></i>hello@petalandbloom.co</li>
+                        <li><i class="fas fa-clock"></i>Mon–Sat: 8am – 7pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ft-btm">
+                <p>&copy; 2024 Petal &amp; Bloom. All rights reserved.</p>
+                <div class="ft-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></div>
+                <div class="pay-ico"><i class="fab fa-cc-visa"></i><i class="fab fa-cc-mastercard"></i><i
+                        class="fab fa-cc-amex"></i><i class="fab fa-cc-paypal"></i></div>
+            </div>
+        </div>
+    </footer>
 
     <button class="btt" id="btt"><i class="fas fa-arrow-up"></i></button>
     <script src="js/main.js"></script>
