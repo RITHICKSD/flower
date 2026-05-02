@@ -42,8 +42,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            line-height: 1;
         }
 
         .btn-side-toggle:hover {
@@ -209,8 +212,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
             transition: var(--transition);
+            line-height: 1;
         }
 
         .btn-globe:hover {
@@ -762,6 +767,8 @@
     <button class="ham-admin" id="hamAdmin"><i class="fas fa-bars"></i></button>
 
     <div class="admin-meta">
+        <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL" style="border-color:#ddd; color:#333;">LTR</button>
+        <button class="btn-theme" id="themeToggle" title="Toggle Light/Dark Mode" style="border:none; background:none; font-size:1.1rem; color:#333; cursor:pointer;"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
         <div class="session-info">
             <div style="font-weight:700;">Admin Session #2408</div>
             <div style="font-size:0.75rem; color:var(--gold);">LAST SYNC: JUST NOW</div>
@@ -809,8 +816,7 @@
         </div>
 
         <div class="sidebar-toggles">
-            <button class="btn-side-toggle btn-globe" id="dirToggle" title="Toggle LTR/RTL"><i
-                    class="fas fa-globe"></i></button>
+            <button class="btn-side-toggle btn-globe" id="dirToggle" title="Toggle LTR/RTL">LTR</button>
             <button class="btn-side-toggle btn-theme" id="themeToggle" title="Toggle Light/Dark Mode"><i
                     class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
         </div>
@@ -824,6 +830,8 @@
                 <p id="secDesc">Real-time performance tracking across all departments</p>
             </div>
             <div class="admin-meta-desktop">
+                <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL" style="border-color:#ddd; color:#333;">LTR</button>
+                <button class="btn-theme" id="themeToggle" title="Toggle Light/Dark Mode" style="border:none; background:none; font-size:1.1rem; color:#333; cursor:pointer;"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
                 <div class="session-info">
                     <div style="font-weight:700;">Admin Session #2408</div>
                     <div style="font-size:0.75rem; color:var(--gold);">LAST SYNC: JUST NOW</div>
@@ -2065,47 +2073,24 @@
             }
         });
 
-        // Direction toggle for both buttons
-        const dirToggles = document.querySelectorAll('#dirToggle, #dirToggleDesktop');
-        dirToggles.forEach(dt => {
-            if (dt) {
-                dt.addEventListener('click', () => {
-                    const h = document.documentElement;
-                    const isRTL = h.getAttribute('dir') === 'rtl';
-                    h.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
-                });
+        // Direction toggle handled by main.js
+
+        // Theme Toggle handled by main.js
+        window.addEventListener('themeChanged', () => {
+            // Re-initialize active charts for theme contrast
+            const activeSec = document.querySelector('.section-content.active');
+            if (activeSec) {
+                const targetId = activeSec.id;
+                if (targetId === 'analytics') initAnalyticsCharts();
+                if (targetId === 'inventory') initInventoryCharts();
+                if (targetId === 'orders') initOrdersCharts();
+                if (targetId === 'supply') initSupplyCharts();
+                if (targetId === 'customers') initCustomersCharts();
+                if (targetId === 'settings') initSettingsCharts();
             }
         });
-
-        // Theme Toggle
-        (() => {
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-            const currentTheme = localStorage.getItem('theme');
-
-            if (currentTheme === 'dark') {
-                body.classList.add('dark-theme');
-            }
-
-            themeToggle?.addEventListener('click', () => {
-                body.classList.toggle('dark-theme');
-                const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-                localStorage.setItem('theme', theme);
-                
-                // Re-initialize active charts for theme contrast
-                const activeSec = document.querySelector('.section-content.active');
-                if (activeSec) {
-                    const targetId = activeSec.id;
-                    if (targetId === 'analytics') initAnalyticsCharts();
-                    if (targetId === 'inventory') initInventoryCharts();
-                    if (targetId === 'orders') initOrdersCharts();
-                    if (targetId === 'supply') initSupplyCharts();
-                    if (targetId === 'customers') initCustomersCharts();
-                    if (targetId === 'settings') initSettingsCharts();
-                }
-            });
-        })();
     </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

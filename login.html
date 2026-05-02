@@ -245,12 +245,14 @@
             border: 1.5px solid rgba(201, 160, 80, 0.4);
             background: transparent;
             color: var(--forest);
-            font-size: 1rem;
+            font-size: 0.75rem;
+            font-weight: 600;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s;
+            line-height: 1;
         }
 
         .btn-globe-auth:hover {
@@ -674,7 +676,7 @@
     <!-- ── RIGHT PANEL ── -->
     <div class="panel-right">
         <div class="top-bar">
-            <button class="btn-globe-auth" id="dirToggle" title="Toggle LTR / RTL"><i class="fas fa-globe"></i></button>
+            <button class="btn-globe-auth" id="dirToggle" title="Toggle LTR / RTL">LTR</button>
             <button class="btn-theme-auth" id="themeToggle" title="Toggle Light/Dark Mode"><i class="fas fa-moon"></i><i
                     class="fas fa-sun"></i></button>
         </div>
@@ -732,28 +734,10 @@
     </div>
 
     <script>
-        // RTL / LTR Toggle
-        document.getElementById('dirToggle').addEventListener('click', () => {
-            const h = document.documentElement;
-            h.setAttribute('dir', h.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl');
-        });
+        // RTL / LTR Toggle handled by main.js
 
-        // Theme Toggle
-        (() => {
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-            const currentTheme = localStorage.getItem('theme');
+        // Theme and Direction toggles handled by main.js
 
-            if (currentTheme === 'dark') {
-                body.classList.add('dark-theme');
-            }
-
-            themeToggle?.addEventListener('click', () => {
-                body.classList.toggle('dark-theme');
-                const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-                localStorage.setItem('theme', theme);
-            });
-        })();
 
         // Password visibility toggle
         const togglePwd = document.getElementById('togglePwd');
@@ -771,7 +755,7 @@
             window.location.href = 'user-dashboard.html';
         });
     </script>
-
+    <script src="js/main.js"></script>
 </body>
 
 </html>

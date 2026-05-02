@@ -132,13 +132,30 @@ nav?.querySelectorAll('.ni.has-drop > .nl-a').forEach(link => {
     });
 });
 // ── LTR/RTL ──
-document.getElementById('dirToggle')?.addEventListener('click', () => {
-    const h = document.documentElement, r = h.getAttribute('dir') === 'rtl';
-    h.setAttribute('dir', r ? 'ltr' : 'rtl');
-});
+(() => {
+    const html = document.documentElement;
+    const currentDir = localStorage.getItem('dir') || 'ltr';
+    
+    const updateDirUI = (dir) => {
+        html.setAttribute('dir', dir);
+        localStorage.setItem('dir', dir);
+        document.querySelectorAll('#dirToggle, .btn-globe, .btn-globe-auth').forEach(btn => {
+            btn.textContent = dir.toUpperCase();
+        });
+    };
+
+    updateDirUI(currentDir);
+
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('#dirToggle') || e.target.closest('.btn-globe') || e.target.closest('.btn-globe-auth');
+        if (btn) {
+            const newDir = html.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+            updateDirUI(newDir);
+        }
+    });
+})();
 // ── THEME TOGGLE ──
 (() => {
-    const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
     const currentTheme = localStorage.getItem('theme');
 
@@ -146,10 +163,14 @@ document.getElementById('dirToggle')?.addEventListener('click', () => {
         body.classList.add('dark-theme');
     }
 
-    themeToggle?.addEventListener('click', () => {
-        body.classList.toggle('dark-theme');
-        const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-        localStorage.setItem('theme', theme);
+    document.addEventListener('click', (e) => {
+        const btn = e.target.closest('#themeToggle') || e.target.closest('.btn-theme') || e.target.closest('.btn-theme-auth');
+        if (btn) {
+            body.classList.toggle('dark-theme');
+            const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+        }
     });
 })();
 // ── FALLING PETALS CANVAS ──

@@ -697,17 +697,18 @@ input {
    background: transparent;
    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
    cursor: pointer;
+   font-size: 0.75rem;
+   font-weight: 600;
+   font-family: var(--fb);
+   letter-spacing: 0.05em;
+   line-height: 1;
 }
 
 .btn-globe:hover {
    background: var(--g);
    color: #fff;
    border-color: var(--g);
-   transform: rotate(15deg) scale(1.1);
-}
-
-.btn-globe i {
-   font-size: 1.1rem;
+   transform: scale(1.1);
 }
 
 .btn-theme {

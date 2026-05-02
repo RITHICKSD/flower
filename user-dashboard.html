@@ -42,8 +42,11 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            line-height: 1;
         }
 
         .btn-side-toggle:hover {
@@ -522,6 +525,8 @@
     <button class="ham" id="hamBtn"><i class="fas fa-bars"></i></button>
 
     <div class="user-meta">
+        <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL" style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.7rem; font-weight:600; cursor:pointer;">LTR</button>
+        <button class="btn-theme" id="themeToggle" title="Toggle Light/Dark Mode" style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.9rem; cursor:pointer;"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
         <div class="user-info">
             <div class="user-name">Vanessa Bloom</div>
             <div class="user-rank">Platinum Member</div>
@@ -570,8 +575,7 @@
         </div>
 
         <div class="sidebar-toggles">
-            <button class="btn-side-toggle btn-globe" id="dirToggle" title="Toggle LTR/RTL"><i
-                    class="fas fa-globe"></i></button>
+            <button class="btn-side-toggle btn-globe" id="dirToggle" title="Toggle LTR/RTL">LTR</button>
             <button class="btn-side-toggle btn-theme" id="themeToggle" title="Toggle Light/Dark Mode"><i
                     class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
         </div>
@@ -584,6 +588,8 @@
                 <p id="dashDesc">Welcome back, Vanessa. Here is your floral journey at a glance.</p>
             </div>
             <div class="user-meta-desktop">
+                <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL" style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.7rem; font-weight:600; cursor:pointer;">LTR</button>
+                <button class="btn-theme" id="themeToggle" title="Toggle Light/Dark Mode" style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.9rem; cursor:pointer;"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
                 <div style="text-align:right" class="user-info-desktop">
                     <div style="font-weight:600;">Vanessa Bloom</div>
                     <div style="font-size:0.8rem; color:var(--gold);">Platinum Member</div>
@@ -1097,38 +1103,16 @@
             });
         }
 
-        // Direction Toggle
-        const dts = document.querySelectorAll('.btn-globe');
-        dts.forEach(dt => {
-            dt.addEventListener('click', () => {
-                const h = document.documentElement;
-                const isRTL = h.getAttribute('dir') === 'rtl';
-                h.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
-            });
+        // Direction Toggle handled by main.js
+
+        // Theme Toggle handled by main.js
+        window.addEventListener('themeChanged', () => {
+            // Re-initialize charts for theme contrast
+            if (typeof initOverviewCharts === 'function') initOverviewCharts();
+            if (typeof initOrdersChart === 'function') initOrdersChart();
+            if (typeof initWishlistChart === 'function') initWishlistChart();
+            if (typeof initSubChart === 'function') initSubChart();
         });
-
-        // Theme Toggle
-        (() => {
-            const themeToggle = document.getElementById('themeToggle');
-            const body = document.body;
-            const currentTheme = localStorage.getItem('theme');
-
-            if (currentTheme === 'dark') {
-                body.classList.add('dark-theme');
-            }
-
-            themeToggle?.addEventListener('click', () => {
-                body.classList.toggle('dark-theme');
-                const theme = body.classList.contains('dark-theme') ? 'dark' : 'light';
-                localStorage.setItem('theme', theme);
-                
-                // Re-initialize charts for theme contrast
-                if (typeof initOverviewCharts === 'function') initOverviewCharts();
-                if (typeof initOrdersChart === 'function') initOrdersChart();
-                if (typeof initWishlistChart === 'function') initWishlistChart();
-                if (typeof initSubChart === 'function') initSubChart();
-            });
-        })();
 
         // Mobile Ham
         document.getElementById('hamBtn').addEventListener('click', (e) => {
@@ -1149,6 +1133,7 @@
         initOverviewCharts();
 
     </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

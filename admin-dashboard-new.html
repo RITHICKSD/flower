@@ -518,8 +518,7 @@
     <button class="ham-admin" id="hamAdmin"><i class="fas fa-bars"></i></button>
 
     <div class="admin-meta">
-        <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL" style="border-color:#ddd; color:#333;"><i
-                class="fas fa-globe"></i></button>
+        <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL" style="border-color:#ddd; color:#333;">LTR</button>
         <div class="session-info">
             <div style="font-weight:700;">Admin Session #2408</div>
             <div style="font-size:0.75rem; color:var(--gold);">LAST SYNC: JUST NOW</div>
@@ -569,7 +568,7 @@
             </div>
             <div class="admin-meta-desktop">
                 <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL"
-                    style="border-color:#ddd; color:#333;"><i class="fas fa-globe"></i></button>
+                    style="border-color:#ddd; color:#333;">LTR</button>
                 <div style="text-align:right">
                     <div style="font-weight:700;">Admin Session #2408</div>
                     <div style="font-size:0.75rem; color:var(--gold);">LAST SYNC: JUST NOW</div>
@@ -770,15 +769,9 @@
             }
         });
 
-        const dt = document.getElementById('dirToggle');
-        if (dt) {
-            dt.addEventListener('click', () => {
-                const h = document.documentElement;
-                const isRTL = h.getAttribute('dir') === 'rtl';
-                h.setAttribute('dir', isRTL ? 'ltr' : 'rtl');
-            });
-        }
+        // Direction toggle handled by main.js
     </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>
