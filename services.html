@@ -15,7 +15,7 @@
     <style>
         .about-hero {
             height: 60vh;
-            background: linear-gradient(rgba(21, 9, 16, 0.6), rgba(21, 9, 16, 0.6)), url('https://picsum.photos/seed/services_v2/1920/1080');
+            background: linear-gradient(rgba(21, 9, 16, 0.6), rgba(21, 9, 16, 0.6)), url('images/hero.png');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -121,10 +121,16 @@
                     <li class="ni has-drop"><a href="#" class="nl-a">Dashboard <i class="fas fa-chevron-down"></i></a>
                         <div class="drop"><a href="user-dashboard.html" class="di"><i class="fas fa-user-circle"></i>
                                 User Dashboard</a><a href="admin-dashboard.html" class="di"><i
-                                    class="fas fa-shield-halved"></i> Admin Dashboard</a></div>
+                                     class="fas fa-shield-halved"></i> Admin Dashboard</a></div>
                     </li>
                     <li class="ni ni-login-mobile"><a href="login.html" class="nl-a"><i class="fas fa-user"></i>
                             Login</a></li>
+                    <li class="ni ni-toggles-mobile">
+                        <div class="mobile-toggles">
+                            <button class="btn-globe" title="Toggle LTR/RTL">LTR</button>
+                            <button class="btn-theme" title="Toggle Light/Dark Mode"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+                        </div>
+                    </li>
                 </ul>
             </nav>
             <div class="hdr-right">
@@ -142,8 +148,35 @@
         <!-- ═══ S1: PAGE HERO ═══ -->
         <section class="about-hero">
             <div class="about-header-txt">
-                <h1 class="ani-up">Bespoke Floral Services</h1>
-                <p class="ani-up d1">Tailored Excellence for Every Milestone</p>
+                <h1 class="ani-up">Artisan Floral Services</h1>
+                <p class="ani-up d1">From Daily Bouquets to Grand Installations</p>
+            </div>
+        </section>
+
+        <!-- ═══ S1.5: OUR COLLECTIONS ═══ -->
+        <section class="sec bg-cream">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">Our Blooms</span>
+                    <h2 class="st">The Petal & Bloom Collection</h2>
+                    <p style="max-width: 700px; margin: 0 auto;">We source only the most exquisite varieties from sustainable growers worldwide. Each stem is hand-selected for its beauty, fragrance, and longevity.</p>
+                </div>
+                <div class="services-grid mt60">
+                    <div class="service-item ani-up">
+                        <div class="service-img" style="background-image: url('images/flow1.jpg'); height: 350px;"></div>
+                        <div class="service-info">
+                            <h3>Signature Bouquets</h3>
+                            <p>Artfully hand-tied arrangements featuring **David Austin Roses**, **Fragrant Stock**, and **Italian Ruscus**. Perfect for daily moments of joy or heartfelt gestures.</p>
+                        </div>
+                    </div>
+                    <div class="service-item ani-up d1">
+                        <div class="service-img" style="background-image: url('images/flow6.webp'); height: 350px;"></div>
+                        <div class="service-info">
+                            <h3>Vase Arrangements</h3>
+                            <p>Pre-arranged in our signature ceramic or glass vessels. We utilize **Architectural Lilies**, **Hydrangeas**, and **Flowering Branches** for a striking interior presence.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -153,56 +186,52 @@
                 <div class="services-grid">
                     <div class="service-item ani-left d0">
                         <div class="service-img"
-                            style="background-image: url('https://picsum.photos/seed/wedding_v/800/1000'); height: 450px;">
+                            style="background-image: url('images/bridal.png'); height: 450px;">
                         </div>
                         <div class="service-info">
                             <span class="eye">01. Grand Events</span>
                             <h3>Wedding Floristry</h3>
                             <span class="service-price">Packages from $2,500</span>
-                            <p>Complete floral design for your special day, including bouquets, centerpieces, and grand
-                                archway installations that define the atmosphere.</p>
+                             <p>Complete floral design for your special day. We specialize in rare **Heritage Roses**, **Dutch Peonies**, and **Exotic Orchids**, creating everything from delicate bridal bouquets to grand archway installations that define the atmosphere of your celebration.</p>
                             <a href="contact.html" class="btn btn-outline mt40"
                                 style="border-color: var(--g); color: var(--g);">Enquire Now</a>
                         </div>
                     </div>
                     <div class="service-item ani-right d1">
                         <div class="service-img"
-                            style="background-image: url('https://picsum.photos/seed/corp_v/800/1000'); height: 450px;">
+                            style="background-image: url('images/flow3.jpg'); height: 450px;">
                         </div>
                         <div class="service-info">
                             <span class="eye">02. Atmosphere</span>
                             <h3>Corporate Styling</h3>
                             <span class="service-price">Custom Monthly Retainers</span>
-                            <p>Elevate your office or retail space with weekly rotations of fresh, luxury arrangements
-                                designed to speak your brand's language.</p>
+                             <p>Elevate your office, hotel, or retail space with our signature botanical installations. We utilize long-lasting **Lilies**, **Calla Lilies**, and **Structural Greenery** in weekly rotations, designed to seamlessly align with your brand's aesthetic language.</p>
                             <a href="contact.html" class="btn btn-outline mt40"
                                 style="border-color: var(--g); color: var(--g);">Enquire Now</a>
                         </div>
                     </div>
                     <div class="service-item ani-left d2">
                         <div class="service-img"
-                            style="background-image: url('https://picsum.photos/seed/event_v/800/1000'); height: 450px;">
+                            style="background-image: url('images/wild.png'); height: 450px;">
                         </div>
                         <div class="service-info">
-                            <span class="eye">03. Curation</span>
-                            <h3>Event Decor</h3>
+                            <span class="eye">03. Customization</span>
+                            <h3>Bespoke Arrangements</h3>
                             <span class="service-price">Starting at $500</span>
-                            <p>From intimate dinner parties to grand galas, we provide floral accents that set the
-                                perfect mood for every guest.</p>
+                             <p>From intimate dinner parties to grand galas, we provide curated, one-of-a-kind floral accents. Each piece is custom-tailored featuring **Ranunculus**, **Anemones**, and **Seasonal Wildflowers** to perfectly align with your vision and occasion.</p>
                             <a href="contact.html" class="btn btn-outline mt40"
                                 style="border-color: var(--g); color: var(--g);">Enquire Now</a>
                         </div>
                     </div>
                     <div class="service-item ani-right d3">
                         <div class="service-img"
-                            style="background-image: url('https://picsum.photos/seed/sub_v/800/1000'); height: 450px;">
+                            style="background-image: url('images/flow2.webp'); height: 450px;">
                         </div>
                         <div class="service-info">
                             <span class="eye">04. Lifestyle</span>
                             <h3>Subscription Club</h3>
                             <span class="service-price">From $49 / Month</span>
-                            <p>Enjoy a regular infusion of beauty in your home with our curated subscription boxes,
-                                delivered fresh and ready to bloom.</p>
+                             <p>Enjoy a regular infusion of beauty in your home with our curated subscription boxes. Each delivery features a hand-picked selection of the season's finest blooms like **Tulips**, **Hydrangeas**, and **Dahlias**, delivered fresh and ready to bloom.</p>
                             <a href="index.html#subscriptions" class="btn btn-outline mt40"
                                 style="border-color: var(--g); color: var(--g);">View Plans</a>
                         </div>
@@ -216,7 +245,7 @@
             <div class="con">
                 <div class="loyalty-g">
                     <div class="loyalty-img ani-left">
-                        <img src="https://picsum.photos/seed/hotel/800/600" alt="Hotel" style="border-radius: 40px;">
+                        <img src="images/flow7.avif" alt="Hotel" style="border-radius: 40px;">
                     </div>
                     <div class="loyalty-txt ani-right">
                         <span class="eye">05. Hospitality</span>
@@ -225,6 +254,37 @@
                             welcome guests with unparalleled elegance. Our team manages daily maintenance to ensure
                             perfection 24/7.</p>
                         <a href="contact.html" class="btn btn-primary mt40">Hospitality Inquiries</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ S4.5: SEASONAL VARIETIES ═══ -->
+        <section class="sec bg-cream">
+            <div class="con">
+                <div class="sh center">
+                    <span class="eye">Our Palette</span>
+                    <h2 class="st">Seasonal Flower Varieties</h2>
+                    <p style="max-width: 600px; margin: 0 auto;">We pride ourselves on offering a rotating selection of the world's most beautiful stems, categorized by their peak seasonal availability.</p>
+                </div>
+                <div class="services-grid mt60">
+                    <div class="stat-card ani-up" style="padding: 30px; background: #fff; border-radius: 20px;">
+                        <h4 style="font-family: var(--ff); font-size: 1.8rem; color: var(--p);">Spring & Summer</h4>
+                        <ul style="list-style: none; padding: 0; margin-top: 15px; color: var(--txm);">
+                            <li style="margin-bottom: 8px;">✦ Peonies (Sarah Bernhardt, Coral Sunset)</li>
+                            <li style="margin-bottom: 8px;">✦ Garden Roses (Juliet, Patience)</li>
+                            <li style="margin-bottom: 8px;">✦ Sweet Peas & Hydrangeas</li>
+                            <li style="margin-bottom: 8px;">✦ Seasonal Dahlias & Zinnias</li>
+                        </ul>
+                    </div>
+                    <div class="stat-card ani-up d1" style="padding: 30px; background: #fff; border-radius: 20px;">
+                        <h4 style="font-family: var(--ff); font-size: 1.8rem; color: var(--p);">Autumn & Winter</h4>
+                        <ul style="list-style: none; padding: 0; margin-top: 15px; color: var(--txm);">
+                            <li style="margin-bottom: 8px;">✦ Hellebores & Amaryllis</li>
+                            <li style="margin-bottom: 8px;">✦ Ranunculus & Anemones</li>
+                            <li style="margin-bottom: 8px;">✦ Ilex Berries & Evergreen Foliage</li>
+                            <li style="margin-bottom: 8px;">✦ Orchids (Cymbidium, Phalaenopsis)</li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -241,7 +301,7 @@
                             with bespoke candles or room mists to create a multi-sensory environment.</p>
                     </div>
                     <div class="loyalty-img ani-right">
-                        <img src="https://picsum.photos/seed/scent/800/600" alt="Scent" style="border-radius: 40px;">
+                        <img src="images/ver1.webp" alt="Scent" style="border-radius: 40px;">
                     </div>
                 </div>
             </div>
@@ -259,12 +319,12 @@
                 </div>
                 <div class="services-grid mt60">
                     <div class="stat-card ani-up" style="background: #fff; padding: 20px;">
-                        <img src="https://picsum.photos/seed/preserve1/500/500"
+                        <img src="images/ver8.jpg"
                             style="width: 100%; border-radius: 10px;">
                         <h4 class="center mt10">Botanical Frames</h4>
                     </div>
                     <div class="stat-card ani-up d1" style="background: #fff; padding: 20px;">
-                        <img src="https://picsum.photos/seed/preserve2/500/500"
+                        <img src="images/ver9.webp"
                             style="width: 100%; border-radius: 10px;">
                         <h4 class="center mt10">Encased Domes</h4>
                     </div>
@@ -272,14 +332,52 @@
             </div>
         </section>
 
-        <!-- ═══ S6: VIP GIFTING ═══ -->
+        <!-- ═══ S6: VIP GIFTING & DELIVERY ═══ -->
         <section class="sec">
             <div class="con">
                 <div class="sh center">
-                    <span class="eye">08. Gifting</span>
-                    <h2 class="st">VIP Concierge White-Label</h2>
-                    <p>Exclusive gifting services for concierge desks and personal assistants. We handle recurring
-                        anniversaries and special dates with automatic, premium delivery.</p>
+                    <span class="eye">08. The Experience</span>
+                    <h2 class="st">Gifting & White-Glove Delivery</h2>
+                </div>
+                <div class="services-grid mt60">
+                    <div class="data-panel ani-left">
+                        <h3>Premium Gifting Options</h3>
+                        <ul class="num-list">
+                            <li class="num-item">
+                                <span class="num-label">Handwritten Calligraphy Notes</span>
+                            </li>
+                            <li class="num-item">
+                                <span class="num-label">Luxury Silk Ribbon Wrapping</span>
+                            </li>
+                            <li class="num-item">
+                                <span class="num-label">Branded Presentation Boxes</span>
+                            </li>
+                            <li class="num-item">
+                                <span class="num-label">Bespoke Pairing (Chocolates/Scent)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="data-panel ani-right">
+                        <h3>Delivery Services</h3>
+                        <ul class="num-list">
+                            <li class="num-item">
+                                <span class="num-label">Same-Day London Delivery</span>
+                                <span class="num-data">Order by 12PM</span>
+                            </li>
+                            <li class="num-item">
+                                <span class="num-label">Next-Day Nationwide Shipping</span>
+                                <span class="num-data">Secure Packing</span>
+                            </li>
+                            <li class="num-item">
+                                <span class="num-label">White-Glove Courier Service</span>
+                                <span class="num-data">Temperature Controlled</span>
+                            </li>
+                            <li class="num-item">
+                                <span class="num-label">Subscription Logistics</span>
+                                <span class="num-data">Flexible Scheduling</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>

@@ -415,17 +415,30 @@
             .user-meta {
                 position: fixed;
                 top: 15px;
-                right: 20px;
+                right: 15px;
                 z-index: 1500;
-                background: rgba(250, 246, 241, 0.95);
+                background: rgba(250, 246, 241, 0.98);
                 backdrop-filter: blur(10px);
-                padding: 8px 15px;
-                border-radius: 30px;
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+                padding: 4px 8px;
+                border-radius: 40px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
                 display: flex !important;
                 align-items: center;
-                gap: 12px;
-                border: 1px solid rgba(0, 0, 0, 0.03);
+                gap: 6px;
+                border: 1px solid rgba(201, 160, 80, 0.15);
+                max-width: calc(100% - 80px);
+            }
+
+            .user-meta .btn-globe,
+            .user-meta .btn-theme {
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 0.6rem !important;
+            }
+
+            .user-avatar {
+                width: 30px !important;
+                height: 30px !important;
             }
 
             .user-info {
@@ -525,8 +538,11 @@
     <button class="ham" id="hamBtn"><i class="fas fa-bars"></i></button>
 
     <div class="user-meta">
-        <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL" style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.7rem; font-weight:600; cursor:pointer;">LTR</button>
-        <button class="btn-theme" id="themeToggle" title="Toggle Light/Dark Mode" style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.9rem; cursor:pointer;"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+        <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL"
+            style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.7rem; font-weight:600; cursor:pointer;">LTR</button>
+        <button class="btn-theme" id="themeToggle" title="Toggle Light/Dark Mode"
+            style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.9rem; cursor:pointer;"><i
+                class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
         <div class="user-info">
             <div class="user-name">Vanessa Bloom</div>
             <div class="user-rank">Platinum Member</div>
@@ -570,7 +586,8 @@
             <a href="#" class="nav-link" data-sec="addresses"><i class="fas fa-map-marker-alt"></i> Saved Addresses</a>
         </div>
 
-        <div class="sidebar-footer" style="margin-top: auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 10px;">
+        <div class="sidebar-footer"
+            style="margin-top: auto; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 10px;">
             <a href="index.html" class="nav-link btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
         </div>
 
@@ -588,8 +605,11 @@
                 <p id="dashDesc">Welcome back, Vanessa. Here is your floral journey at a glance.</p>
             </div>
             <div class="user-meta-desktop">
-                <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL" style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.7rem; font-weight:600; cursor:pointer;">LTR</button>
-                <button class="btn-theme" id="themeToggle" title="Toggle Light/Dark Mode" style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.9rem; cursor:pointer;"><i class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
+                <button class="btn-globe" id="dirToggle" title="Toggle LTR/RTL"
+                    style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.7rem; font-weight:600; cursor:pointer;">LTR</button>
+                <button class="btn-theme" id="themeToggle" title="Toggle Light/Dark Mode"
+                    style="border:1.5px solid rgba(30,45,36,0.1); border-radius:50%; width:38px; height:38px; background:white; color:var(--forest); font-size:0.9rem; cursor:pointer;"><i
+                        class="fas fa-moon"></i><i class="fas fa-sun"></i></button>
                 <div style="text-align:right" class="user-info-desktop">
                     <div style="font-weight:600;">Vanessa Bloom</div>
                     <div style="font-size:0.8rem; color:var(--gold);">Platinum Member</div>
@@ -1018,16 +1038,16 @@
                         y: {
                             beginAtZero: true,
                             grid: { color: document.body.classList.contains('dark-theme') ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)' },
-                            ticks: { 
+                            ticks: {
                                 color: document.body.classList.contains('dark-theme') ? '#FAF6F1' : '#1E2D24',
-                                font: { family: 'Jost' } 
+                                font: { family: 'Jost' }
                             }
                         },
                         x: {
                             grid: { display: false },
-                            ticks: { 
+                            ticks: {
                                 color: document.body.classList.contains('dark-theme') ? '#FAF6F1' : '#1E2D24',
-                                font: { family: 'Jost' } 
+                                font: { family: 'Jost' }
                             }
                         }
                     }
